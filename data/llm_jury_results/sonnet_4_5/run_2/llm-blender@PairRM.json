@@ -1,0 +1,162 @@
+[
+  {
+    "section_name": "Model Details: Person or organization developing model",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Model Details: Model date",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Model Details: Model version",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Model Details: Model type",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Model Details: Training details",
+    "is_correct": false,
+    "incorrect_information": "The model card states 'The paper mentions using 5 pairs per input (Source: 2306.02561.pdf, Section 3.3), while the configuration file specifies a sub-sampling ratio of 0.4 for `all_pair` mode (Source: ranker_config.json.txt).' However, the paper (Section 3.3, page 4) states 'In practice, we found that using 5 pairs per input is sufficient for obtaining decent results.' This is not a contradiction but rather the paper's finding about what works well. The configuration file shows sub_sampling_ratio of 0.4 and sub_sampling_mode of 'all_pair', which are implementation details. The model card incorrectly presents these as potentially inconsistent when they are complementary implementation details."
+  },
+  {
+    "section_name": "Model Details: Paper or other resource for more information",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Model Details: Citation details",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Model Details: License",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Model Details: Contact",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Intended Use: Primary intended uses",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Intended Use: Primary intended users",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Intended Use: Out-of-scope uses",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "How to Use",
+    "is_correct": false,
+    "incorrect_information": "The model card states the input format should use '<s>' and '</s>' tokens from the DeBERTa tokenizer. However, according to tokenizer_config.json.txt, the DeBERTa tokenizer uses '[CLS]' as bos_token and '[SEP]' as eos_token, not '<s>' and '</s>'. The correct format should use [CLS] and [SEP] tokens instead."
+  },
+  {
+    "section_name": "Factors: Relevant factors",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Factors: Evaluation factors",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Metrics: Model performance measures",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Metrics: Decision thresholds",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Metrics: Variation approaches",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Evaluation Data: Datasets",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Evaluation Data: Motivation",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Evaluation Data: Preprocessing",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Training Data: Datasets",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Training Data: Motivation",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Training Data: Preprocessing",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Quantitative Analyses: Unitary results",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Quantitative Analyses: Intersectional results",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Memory or Hardware Requirements: Loading Requirements",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Memory or Hardware Requirements: Deploying Requirements",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Memory or Hardware Requirements: Training or Fine-tuning Requirements",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Ethical Considerations",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Caveats and Recommendations: Caveats",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Caveats and Recommendations: Recommendations",
+    "is_correct": true,
+    "incorrect_information": null
+  }
+]

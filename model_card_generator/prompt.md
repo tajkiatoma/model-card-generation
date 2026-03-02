@@ -1,0 +1,1 @@
+Write down the model card from the model's attached repository files. Below are the names of the attached repository files:

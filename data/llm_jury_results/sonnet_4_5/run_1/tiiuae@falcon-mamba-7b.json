@@ -1,0 +1,162 @@
+[
+  {
+    "section_name": "Model Details: Person or organization developing model",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Model Details: Model date",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Model Details: Model version",
+    "is_correct": false,
+    "incorrect_information": "The model card states that Falcon Mamba 7B 'surpasses other leading open-weight models based on Transformers (like Mistral 7B and Llama3.1 8B)' as a general claim. However, the PDF shows mixed results: in Table 2 (HF Leaderboard v1), Falcon2-11B (64.28) and Gemma-7B (63.75) both outperform or match FalconMamba-7B (64.09), and in Table 3 (HF Leaderboard v2), Gemma-7B (15.28) and Mistral-Nemo-Base-2407 (15.08) outperform FalconMamba-7B (15.04). The claim of surpassing 'other leading open-weight models' is overstated."
+  },
+  {
+    "section_name": "Model Details: Model type",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Model Details: Training details",
+    "is_correct": false,
+    "incorrect_information": "The model card states the batch size was 'linearly increased from 128 to 2048 over the first 50 trillion tokens.' However, the PDF (page 3) states it was increased 'over the first 50GT' (50 gigatokens), not 50 trillion tokens. 50GT equals 50 billion tokens, not 50 trillion."
+  },
+  {
+    "section_name": "Model Details: Paper or other resource for more information",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Model Details: Citation details",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Model Details: License",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Model Details: Contact",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Intended Use: Primary intended uses",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Intended Use: Primary intended users",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Intended Use: Out-of-scope uses",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "How to Use",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Factors: Relevant factors",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Factors: Evaluation factors",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Metrics: Model performance measures",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Metrics: Decision thresholds",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Metrics: Variation approaches",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Evaluation Data: Datasets",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Evaluation Data: Motivation",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Evaluation Data: Preprocessing",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Training Data: Datasets",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Training Data: Motivation",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Training Data: Preprocessing",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Quantitative Analyses: Unitary results",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Quantitative Analyses: Intersectional results",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Memory or Hardware Requirements: Loading Requirements",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Memory or Hardware Requirements: Deploying Requirements",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Memory or Hardware Requirements: Training or Fine-tuning Requirements",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Ethical Considerations",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Caveats and Recommendations: Caveats",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Caveats and Recommendations: Recommendations",
+    "is_correct": true,
+    "incorrect_information": null
+  }
+]

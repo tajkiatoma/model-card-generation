@@ -1,0 +1,162 @@
+[
+  {
+    "section_name": "Model Details: Person or organization developing model",
+    "is_correct": false,
+    "incorrect_information": "The model card states the model was developed by 'DeepFloyd' and cites image files as evidence. However, the provided repository files do not contain any text-based documentation or configuration files that explicitly identify 'DeepFloyd' as the developer. Image filenames alone are not sufficient evidence from the repository files."
+  },
+  {
+    "section_name": "Model Details: Model date",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Model Details: Model version",
+    "is_correct": false,
+    "incorrect_information": "The model card states the model version is 'IF-I-I-v1.0' and cites training graphs (pics/loss.jpg, pics/lr.jpg) as evidence. However, these image files cannot be verified from the provided text-based repository files. The text files do not contain explicit version strings like 'IF-I-I-v1.0' or 'v1.0'."
+  },
+  {
+    "section_name": "Model Details: Model type",
+    "is_correct": false,
+    "incorrect_information": "The model card claims the text encoder is 'frozen' and has '4.8B parameters', citing image files as evidence. The provided repository files do not contain text documentation confirming the encoder is frozen or stating it has 4.8B parameters. The model card also references parameter counts for various model sizes (IF-I-XL, IF-I-L, etc.) citing only image files, which cannot be verified from the text-based repository files provided."
+  },
+  {
+    "section_name": "Model Details: Training details",
+    "is_correct": false,
+    "incorrect_information": "The model card states the learning rate 'starts at 5e-5' citing pics/lr.jpg. This specific value cannot be verified from the provided text-based repository files. While config.yml.txt confirms 16-bit precision, the learning rate value is only claimed to be in an image file."
+  },
+  {
+    "section_name": "Model Details: Paper or other resource for more information",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Model Details: Citation details",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Model Details: License",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Model Details: Contact",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Intended Use: Primary intended uses",
+    "is_correct": false,
+    "incorrect_information": "The model card claims the model has 'a notable capability for rendering text within the generated images accurately' citing pics/deepfloyd_if_scheme.jpg. This capability assessment cannot be verified from the provided text-based repository files."
+  },
+  {
+    "section_name": "Intended Use: Primary intended users",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Intended Use: Out-of-scope uses",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "How to Use",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Factors: Relevant factors",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Factors: Evaluation factors",
+    "is_correct": false,
+    "incorrect_information": "The model card claims evaluation factors are 'Image Fidelity' measured by FID and 'Text-Image Alignment' measured by CLIP Score, citing only pics/fid30k_if.jpg. These specific evaluation factors cannot be verified from the provided text-based repository files."
+  },
+  {
+    "section_name": "Metrics: Model performance measures",
+    "is_correct": false,
+    "incorrect_information": "The model card describes FID-30K and CLIP Score metrics citing only pics/fid30k_if.jpg. The specific metrics and their descriptions cannot be verified from the provided text-based repository files."
+  },
+  {
+    "section_name": "Metrics: Decision thresholds",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Metrics: Variation approaches",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Evaluation Data: Datasets",
+    "is_correct": false,
+    "incorrect_information": "The model card states the training loss was evaluated on 'COCO validation set' citing pics/loss.jpg, and mentions 'FID-30K metric' citing pics/fid30k_if.jpg. These dataset claims cannot be verified from the provided text-based repository files."
+  },
+  {
+    "section_name": "Evaluation Data: Motivation",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Evaluation Data: Preprocessing",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Training Data: Datasets",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Training Data: Motivation",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Training Data: Preprocessing",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Quantitative Analyses: Unitary results",
+    "is_correct": false,
+    "incorrect_information": "The model card provides specific quantitative results (FID scores of 6.8, 8.0, 8.8 and CLIP scores) for different model sizes, citing only pics/fid30k_if.jpg. These specific numerical results cannot be verified from the provided text-based repository files."
+  },
+  {
+    "section_name": "Quantitative Analyses: Intersectional results",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Memory or Hardware Requirements: Loading Requirements",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Memory or Hardware Requirements: Deploying Requirements",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Memory or Hardware Requirements: Training or Fine-tuning Requirements",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Ethical Considerations",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Caveats and Recommendations: Caveats",
+    "is_correct": true,
+    "incorrect_information": null
+  },
+  {
+    "section_name": "Caveats and Recommendations: Recommendations",
+    "is_correct": true,
+    "incorrect_information": null
+  }
+]

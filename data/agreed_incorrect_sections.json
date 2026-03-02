@@ -1,0 +1,232 @@
+{
+    "BAAI/bge-m3": [
+        {
+            "section_name": "Training Data: Datasets",
+            "gemini_incorrect_information": "The size of the fine-tuning data for 'Other Languages' is listed as 130.3K, but Table 8 in 2402.03216.pdf (p. 15) states the size for 'Multi-Lingual (MIRACL, Mr.TyDi)' is 88.9K.",
+            "gpt_incorrect_information": "The count for \u2018Other Languages\u2019 fine-tuning data is given as 130.3K, but Table 8 in the paper lists 88.9K for MIRACL/Mr.TyDi. 130.3K appears to conflate other categories; the correct figure for that line is 88.9K.",
+            "category": "information_mismatch"
+        }
+    ],
+    "CohereForAI/c4ai-command-r-plus": [
+        {
+            "section_name": "Model Details: Model type",
+            "gemini_incorrect_information": "The model card states the context length is 131,072 tokens, but the 'config.json.txt' file specifies '\"model_max_length\": 131072', which is a different parameter from the context length defined by 'max_position_embeddings'. The 'max_position_embeddings' is 8192.",
+            "gpt_incorrect_information": "All listed architecture hyperparameters match config.json, but the claim that num_key_value_heads=8 \"indicates the use of Grouped-Query Attention\" is an interpretation not stated in the repository files.",
+            "category": "information_mismatch, speculative_information"
+        }
+    ],
+    "DeepFloyd/IF-I-XL-v1.0": [
+        {
+            "section_name": "Model Details: Model version",
+            "sonnet_incorrect_information": "The model card states the model version is 'IF-I-I-v1.0' and cites training graphs (pics/loss.jpg, pics/lr.jpg) as evidence. However, these image files cannot be verified from the provided text-based repository files. The text files do not contain explicit version strings like 'IF-I-I-v1.0' or 'v1.0'.",
+            "gpt_incorrect_information": "The card states the version as \"IF-I-I-v1.0\". The training graphs in pics/loss.jpg and pics/lr.jpg show \"IF-I-IF-v1.0\". The diffusers version 0.15.0.dev0 is correct.",
+            "category": "information_mismatch"
+        },
+        {
+            "section_name": "Evaluation Data: Datasets",
+            "sonnet_incorrect_information": "The model card states the training loss was evaluated on 'COCO validation set' citing pics/loss.jpg, and mentions 'FID-30K metric' citing pics/fid30k_if.jpg. These dataset claims cannot be verified from the provided text-based repository files.",
+            "gpt_incorrect_information": "While COCO Valid is shown for loss monitoring (pics/loss.jpg), the statement that FID-30K likely uses COCO is speculative and not supported by the repository files or the fid30k_if.jpg figure.",
+            "category": "speculative_information"
+        },
+        {
+            "section_name": "Quantitative Analyses: Unitary results",
+            "sonnet_incorrect_information": "The model card provides specific quantitative results (FID scores of 6.8, 8.0, 8.8 and CLIP scores) for different model sizes, citing only pics/fid30k_if.jpg. These specific numerical results cannot be verified from the provided text-based repository files.",
+            "gpt_incorrect_information": "Specific numeric results (e.g., FID \u22486.8 at CLIP \u22480.306, etc.) are not provided in the repository files; the fid30k_if.jpg figure is qualitative and does not list exact values.",
+            "category": "speculative_information"
+        }
+    ],
+    "FacebookAI/roberta-large-mnli": [
+        {
+            "section_name": "Training Data: Datasets",
+            "gemini_incorrect_information": "The model card incorrectly states that BOOKCORPUS is 16GB and English WIKIPEDIA is 16GB. The source paper (1907.11692.pdf, Page 3, Section 3.2) states that the combination of BOOKCORPUS plus English WIKIPEDIA is 16GB.",
+            "gpt_incorrect_information": "Sizes for BOOKCORPUS and English WIKIPEDIA are listed separately as 16GB each. The paper states the combination BOOKCORPUS + English WIKIPEDIA totals 16GB of uncompressed text, not 32GB.",
+            "category": "information_mismatch"
+        }
+    ],
+    "SamLowe/roberta-base-go_emotions": [
+        {
+            "section_name": "Model Details: Model version",
+            "gemini_incorrect_information": "The claim that 'The tokenizer version is 0.2, trained by `huggingface/tokenizers`' cannot be verified from the provided `tokenizer_summary.json.txt` file. The file does not contain this information.",
+            "sonnet_incorrect_information": "The model card states 'The tokenizer version is 0.2, trained by `huggingface/tokenizers`' but there is no information about tokenizer version 0.2 or training by huggingface/tokenizers in the provided repository files. The tokenizer_summary.json.txt does not contain version information or training attribution.",
+            "category": "speculative_information"
+        }
+    ],
+    "Tencent-Hunyuan/HunyuanDiT": [
+        {
+            "section_name": "Model Details: Citation details",
+            "gemini_incorrect_information": "The BibTeX citation is not present on page 21 of 2405.08748.pdf as claimed.",
+            "gpt_incorrect_information": "The specific BibTeX entry provided is not present in the supplied paper PDF and the page citation (p. 21) is not verifiable from the repository files. The paper lists references but does not include that BibTeX format.",
+            "category": "speculative_information"
+        }
+    ],
+    "WizardLMTeam/WizardCoder-15B-V1.0": [
+        {
+            "section_name": "Model Details: Model date",
+            "gemini_incorrect_information": "The model card states the paper is dated May 27, 2025. The provided paper (2306.08568.pdf, p. 1) does indeed say \"27 May 2025\", but this is an obvious typo in the source document as the paper was published at ICLR 2024. Reporting a future date as fact is incorrect.",
+            "sonnet_incorrect_information": "The model card states the paper version is dated 'May 27, 2025 (v2)', but the paper shows 'arXiv:2306.08568v2 [cs.CL] 27 May 2025' which appears to be a future date. The paper was actually published as a conference paper at ICLR 2024, and the arXiv version date shown is '27 May 2025' which is likely an error in the source document itself. The model card should clarify this discrepancy or use the ICLR 2024 publication date.",
+            "category": "information_mismatch"
+        },
+        {
+            "section_name": "Caveats and Recommendations: Recommendations",
+            "gemini_incorrect_information": "The recommendation that \"Users should be aware of the performance differences between the 15B and 34B versions and choose the model that best fits their needs and computational resources\" is not stated in the provided paper. It is an inference made by the model card author.",
+            "gpt_incorrect_information": "The suggestion for users to pick between 15B and 34B based on needs/resources is not stated in the provided files; only a general future-work statement about improving performance is present.",
+            "category": "speculative_information"
+        }
+    ],
+    "ai21labs/AI21-Jamba-1.5-Mini": [
+        {
+            "section_name": "Training Data: Preprocessing",
+            "gemini_incorrect_information": "The description of the normalizer and decoder is incorrect. The model card states that the string ' ' is replaced with ' ', which is uninformative. According to tokenizer_summary.json.txt, the normalizer and decoder replace a standard space (' ') with the special character ' ' (U+2581).",
+            "sonnet_incorrect_information": "The model card states that the normalizer replaces ' ' (space) with '\u2581', but according to tokenizer_summary.json.txt, the normalizer replaces '\u2581' with ' ' (the opposite direction). Similarly, the decoder is described as replacing '\u2581' with ' ', which is correct, but the normalizer description is reversed.",
+            "category": "information_mismatch"
+        }
+    ],
+    "beomi/llama-2-ko-7b": [
+        {
+            "section_name": "Intended Use: Primary intended uses",
+            "sonnet_incorrect_information": "The model card states 'The model name, \"Llama-2-Ko,\" suggests it is specialized for the Korean language (LICENSE.txt)' but the LICENSE.txt file does not contain the model name 'Llama-2-Ko' or any information suggesting Korean language specialization.",
+            "gpt_incorrect_information": "The statement that the model name \u201cLlama-2-Ko\u201d suggests specialization for Korean cannot be verified from the repository files; no file documents language specialization.",
+            "category": "speculative_information"
+        }
+    ],
+    "bigscience/bloom": [
+        {
+            "section_name": "Model Details: Model type",
+            "gemini_incorrect_information": "The model card states the vocabulary size is 250,880 and cites both config.json.txt and 2211.05100.pdf. While config.json.txt confirms the vocabulary size is 250,880, the paper (2211.05100.pdf, p. 18, 21) states the vocabulary size is 250,680. Therefore, the citation of the paper for the 250,880 number is incorrect.",
+            "gpt_incorrect_information": "The model card states \u201cVocabulary Size: 250,880 (config.json; 2211.05100.pdf, p. 21, Table 3).\u201d While config.json shows vocab_size=250,880, the paper (Table 3 and Section 3.3) reports 250,680. Citing the paper as supporting 250,880 is incorrect.",
+            "category": "citation_error"
+        }
+    ],
+    "cerebras/Cerebras-GPT-13B": [
+        {
+            "section_name": "Model Details: Training details",
+            "gemini_incorrect_information": "The model card states that the training used a 'linear learning rate decay schedule'. However, Table 1 in the research paper (2304.03208.pdf, p. 3) specifies that the 13B model used a 'Cosine' learning rate decay type.",
+            "gpt_incorrect_information": "The card states a linear learning rate decay schedule for the 13B model. Table 1 in 2304.03208 shows the 13B model used a cosine LR decay (LR=1.2E-04, Type=Cosine).",
+            "category": "information_mismatch"
+        }
+    ],
+    "deepseek-ai/DeepSeek-V2-Chat": [
+        {
+            "section_name": "Model Details: Model type",
+            "gemini_incorrect_information": "The model card states the vocabulary size is 102,400 and cites page 12 of the paper (2405.04434.pdf). However, page 12 of the paper states the vocabulary size is 100K. The value 102,400 is from config.json.txt, but the citation to the paper is incorrect.",
+            "gpt_incorrect_information": "The vocabulary size is stated as 102,400 and cited to both config.json and the paper. While config.json sets vocab_size to 102,400, the paper (2405.04434.pdf, p.12) and tokenizer_summary.json indicate a 100,000-token BBPE vocabulary. Citing the paper for 102,400 is incorrect.",
+            "category": "citation_error"
+        },
+        {
+            "section_name": "How to Use",
+            "sonnet_incorrect_information": "The code example references 'modeling_deepseek.py' in the docstring, but the actual class name in the provided file is 'DeepseekV2ForCausalLM', not 'DeepseekV2ForCausalLM' as shown. Additionally, the sample output claims the model will respond 'I am DeepSeek-V2, a large language model developed by DeepSeek AI', but this specific response cannot be verified from the provided repository files.",
+            "gpt_incorrect_information": "The snippet is attributed to modeling_deepseek.py\u2019s DeepseekV2ForCausalLM docstring but uses the Hugging Face repo id \"deepseek-ai/DeepSeek-V2-Chat\", which is not referenced in the provided files. The docstring example in modeling_deepseek.py uses a placeholder path (PATH_TO_CONVERTED_WEIGHTS). The sample output is not sourced from the repository files, and the claim that \"The generation config is loaded from the repository\" is not supported by the provided files.",
+            "category": "speculative_information"
+        }
+    ],
+    "distil-whisper/distil-large-v2": [
+        {
+            "section_name": "Intended Use: Primary intended uses",
+            "gemini_incorrect_information": "The claim that the model is 'up to 9.9 times faster for long-form audio' is incorrect. According to Table 7 (p. 9) in 2311.00430.pdf, the 9.9 times speed-up refers to the performance of the large-v2 model with chunking compared to the large-v2 model with sequential decoding, not the speed-up of Distil-Whisper.",
+            "gpt_incorrect_information": "Claim: \u201cup to 9.9\u00d7 faster for long-form audio using chunking and batching.\u201d Table 5 reports a 5.8\u00d7 speed-up for distil-large-v2 vs large-v2 for long-form (with chunked decoding). The 9.9\u00d7 figure in Table 7 refers to large-v2 chunked vs large-v2 sequential (algorithmic change), not to Distil-Whisper itself.",
+            "category": "information_mismatch"
+        },
+        {
+            "section_name": "Training Data: Datasets",
+            "gemini_incorrect_information": "The total training hours are stated as 21,770, but the sum of the hours for the individually listed datasets is 21,170. The source document (2311.00430.pdf) is inconsistent, with Table 2 (p. 6) summing to 21,170 hours and Table 13 (p. 20) summing to 21,770 hours. The model card incorrectly mixes the list from one table with the total from another.",
+            "sonnet_incorrect_information": "The model card states the combined dataset contains '21,170 hours' but the paper (p. 5, Table 2) clearly states '21,770 hours' total. This is a factual error in the total hours reported.",
+            "category": "information_mismatch"
+        },
+        {
+            "section_name": "Caveats and Recommendations: Caveats",
+            "gemini_incorrect_information": "The claim that for speculative decoding at a batch size of 16, it 'can perform worse than using the main model by itself' is incorrect. This statement is taken from the text on page 28 of 2311.00430.pdf, but it is contradicted by the data in Table 22 on the same page, which shows that speculative decoding with distil-large-v2 is faster (relative latency 0.8) than large-v2 alone (relative latency 1.0).",
+            "gpt_incorrect_information": "Claim: \u201cAt batch size 16, speculative decoding can perform worse than using the main model by itself (Table 22).\u201d Table 22 shows speculative decoding still faster at batch size 16 (e.g., large\u2011v2 with distil-large\u2011v2 assistant has relative latency 0.8 vs 1.0 baseline; medium.en 1.3 vs 1.5 baseline). The citation does not support the claim.",
+            "category": "information_mismatch"
+        }
+    ],
+    "facebook/seamless-m4t-v2-large": [
+        {
+            "section_name": "Memory or Hardware Requirements: Deploying Requirements",
+            "gemini_incorrect_information": "The cited page (p. 110) containing hardware details and Figure 30 is not present in the provided repository files.",
+            "gpt_incorrect_information": "The claim that S2ST inference was evaluated on a single A100 GPU with 96 CPUs and discussion of deployment speed is not supported by the provided repository files (2312.05187-1-100.pdf, config.json, model.safetensors.index.json).",
+            "category": "citation_error"
+        }
+    ],
+    "jbetker/tortoise-tts-v2": [
+        {
+            "section_name": "Model Details: Model type",
+            "gemini_incorrect_information": "The parameters for the CLVP model (12 encoder layers, 8 attention heads, 512 model dimension, 430 speech token sequence length) are cited from the paper but contradict the values in the cited source (2305.07243v2.pdf, p. 10, Table 3), which specifies Depth 20, Model dim 768, and Attention heads 12. The paper also states a max MEL token length of 293, not 430. The values in the model card match the code in `api.py` but misrepresent the paper.",
+            "sonnet_incorrect_information": "The model card states the CLVP implementation uses 12 encoder layers, but according to the paper (2305.07243v2.pdf, p. 10, Table 3), the CLVP model has a depth of 20 layers, not 12. The model card also states 8 attention heads for CLVP, but the paper indicates 12 attention heads.",
+            "category": "information_mismatch"
+        },
+        {
+            "section_name": "Metrics: Model performance measures",
+            "gemini_incorrect_information": "The claim that `tortoise_v2_examples.html` provides audio samples for subjective evaluation cannot be verified as the file is not included in the provided model repository files.",
+            "gpt_incorrect_information": "The claim that the repository includes 'tortoise_v2_examples.html' with qualitative samples cannot be verified from the provided files (no such file listed). The paper does mention an external page for qualitative comparisons, but the specific file reference is unsupported.",
+            "category": "citation_error"
+        }
+    ],
+    "llm-blender/PairRM": [
+        {
+            "section_name": "How to Use",
+            "gemini_incorrect_information": "The model card incorrectly states that `<s>` and `</s>` are the standard separator tokens for the DeBERTa tokenizer. The `tokenizer_config.json.txt` file specifies `[CLS]` and `[SEP]` as the `bos_token` and `eos_token` respectively. Additionally, the input format example uses `<source>`, `<candidate1>`, etc., which is inconsistent with the special tokens `<|source|>`, `<|candidate1|>` defined in `added_tokens.json.txt` and mentioned earlier in the same section.",
+            "sonnet_incorrect_information": "The model card states the input format should use '<s>' and '</s>' tokens from the DeBERTa tokenizer. However, according to tokenizer_config.json.txt, the DeBERTa tokenizer uses '[CLS]' as bos_token and '[SEP]' as eos_token, not '<s>' and '</s>'. The correct format should use [CLS] and [SEP] tokens instead.",
+            "category": "information_mismatch"
+        }
+    ],
+    "meta-llama/Meta-Llama-3-8B": [
+        {
+            "section_name": "Memory or Hardware Requirements: Loading Requirements",
+            "sonnet_incorrect_information": "The model card cites 'model.safensors.index.json.txt' for disk space requirements, but the correct filename in the repository is 'model.safetensors.index.json.txt' (with 'safetensors' not 'safensors').",
+            "gpt_incorrect_information": "The claim that at least 16.06 GB of RAM/VRAM is required to load the model is an inference not stated in the repository files and may not account for framework/runtime overhead. Additionally, the citation misnames the file as \u201cmodel.safensors.index.json.txt\u201d; the correct file is model.safetensors.index.json.",
+            "category": "speculative_information"
+        }
+    ],
+    "mosaicml/mpt-7b": [
+        {
+            "section_name": "Model Details: Model type",
+            "gemini_incorrect_information": "In the 'Embeddings' subsection, the card states that 'The word embeddings are not tied to the final linear layer by default, but can be'. This is incorrect. The MPTConfig in `configuration_mpt.py` shows that `tie_word_embeddings` defaults to `True`, meaning the embeddings are tied by default.",
+            "gpt_incorrect_information": "Embeddings tying is misstated: by default tie_word_embeddings=True (configuration_mpt.py, modeling_mpt.py). The model ties input and output embeddings by default; the card claims they are not tied by default. All other architecture details match the files.",
+            "category": "information_mismatch"
+        },
+        {
+            "section_name": "Caveats and Recommendations: Recommendations",
+            "gemini_incorrect_information": "The recommendation for generation padding is contradictory. It states, 'Ensure that inputs are right-padded for batch generation, as the model does not support ... right-padded inputs during generation'. The code in `modeling_mpt.py` confirms right-padding is not supported for generation, which means left-padding should be recommended instead.",
+            "gpt_incorrect_information": "The recommendation to \u201cEnsure that inputs are right-padded for batch generation\u201d contradicts the code, which explicitly does not support generation with right padding (modeling_mpt.py). Other recommendations (prefer flash over triton when not using Prefix LM; init_device='meta' with FSDP) are supported.",
+            "category": "information_mismatch"
+        }
+    ],
+    "nvidia/Nemotron-4-340B-Instruct": [
+        {
+            "section_name": "Model Details: Training details",
+            "sonnet_incorrect_information": "The model card states the global batch size is 256, but the model_config.yaml.txt shows 'global_batch_size: 256' at the top level and 'global_batch_size: 128' in both train_ds and validation_ds sections. The model card should clarify this discrepancy or use the correct value from the training data configuration (128).",
+            "gpt_incorrect_information": "Mis-citation of repository file ('model_config.yaml.txt' instead of 'model_config.yaml'). Also, the stated Global Batch Size of 256 conflicts with data.train_ds.global_batch_size = 128 in model_config.yaml; both values exist in the file, so the claim is incomplete/ambiguous.",
+            "category": "information_mismatch"
+        }
+    ],
+    "openai/whisper-large-v3": [
+        {
+            "section_name": "Model Details: Model type",
+            "gemini_incorrect_information": "The model card states the encoder processes an 80-channel log-Mel spectrogram, citing the paper (2212.04356.pdf). However, the config.json.txt file for this v3 model specifies `\"num_mel_bins\": 128`, indicating it uses a 128-channel spectrogram.",
+            "gpt_incorrect_information": "Two mismatches with repository files: (1) The card states the encoder uses an 80\u2011channel log-Mel spectrogram, but config.json sets \"num_mel_bins\": 128 for this model. (2) It says the encoder uses sinusoidal position embeddings; the weights file includes model.encoder.embed_positions.weight, indicating learned positional embeddings rather than sinusoidal for this model.",
+            "category": "information_mismatch"
+        },
+        {
+            "section_name": "Quantitative Analyses: Unitary results",
+            "gemini_incorrect_information": "The Word Error Rate (WER) reported for the `medium` model on the Fleurs dataset is incorrect. The card claims a WER of 4.2% on English and 124.7% on Amharic, but Table 13 (p. 24) of the cited paper (2212.04356.pdf) shows the WER for the `Whisper medium` model is 6.5% on English and 229.3% on Amharic.",
+            "gpt_incorrect_information": "The WSJ WER for Whisper large\u2011v2 is reported as 6.2% in the card; Table 9 (beam search with temperature fallback) in 2212.04356.pdf shows WSJ = 2.6% for large\u2011v2.",
+            "category": "information_mismatch"
+        }
+    ],
+    "stabilityai/stable-diffusion-2-1": [
+        {
+            "section_name": "Memory or Hardware Requirements: Training or Fine-tuning Requirements",
+            "gemini_incorrect_information": "The model card states the text-to-image model was trained on eight V100 GPUs. However, the caption for Table 15 in 2112.10752.pdf (p. 25) specifies that the inpainting model was trained on eight V100s, while the other models in the table, including the text-to-image model, were trained on a single NVIDIA A100.",
+            "gpt_incorrect_information": "The card states the 1.45B text-to-image model was trained on eight V100 GPUs. Table 15 indicates all listed conditional LDMs were trained on a single NVIDIA A100 except the inpainting model, which was trained on eight V100 GPUs. Table 18 reports compute in V100-days but does not claim 8\u00d7V100 for the text-to-image model.",
+            "category": "information_mismatch"
+        }
+    ],
+    "tiiuae/falcon-mamba-7b": [
+        {
+            "section_name": "Model Details: Training details",
+            "gemini_incorrect_information": "The model card states the batch size was increased over the first 50 trillion tokens. The cited source, 2410.05355.pdf on page 3, states it was increased over the first 50 billion tokens.",
+            "sonnet_incorrect_information": "The model card states the batch size was linearly increased from 128 to 2048 over the first 50 trillion tokens. However, the paper (p. 3) states it was increased over the first 50GT (50 billion tokens), not 50 trillion tokens.",
+            "category": "information_mismatch"
+        }
+    ]
+}

@@ -1,0 +1,442 @@
+{
+    "BAAI/bge-m3": [
+        "2402.03216.pdf",
+        "config.json",
+        "config_sentence_transformers.json",
+        "modules.json",
+        "1_Pooling/config.json"
+    ],
+    "CAMB-AI/MARS5-TTS": [
+        "hubconf.py",
+        "inference.py",
+        "LICENSE",
+        "mars5_demo.ipynb",
+        "assets/github-banner.png",
+        "docs/architecture.md",
+        "docs/assets/mars5_AR_arch.png",
+        "docs/assets/mars5_NAR_arch.png",
+        "docs/assets/simplified_diagram.png",
+        "mars5/ar_generate.py",
+        "mars5/diffuser.py",
+        "mars5/model.py",
+        "mars5/trim.py",
+        "mars5/minbpe/codebook.py",
+        "mars5/minbpe/regex.py"
+    ],
+    "CohereForAI/c4ai-command-r-plus": [
+        "config.json",
+        "generation_config.json",
+        "model.safetensors.index.json",
+        "special_tokens_map.json",
+        "tokenizer_config.json"
+    ],
+    "CompVis/stable-diffusion-v1-4": [
+        "2112.10752.pdf",
+        "model_index.json",
+        "v1-variants-scores.jpg",
+        "feature_extractor/preprocessor_config.json",
+        "safety_checker/config.json",
+        "scheduler/scheduler_config.json",
+        "text_encoder/config.json",
+        "tokenizer/tokenizer_config.json",
+        "unet/config.json",
+        "vae/config.json"
+    ],
+    "Crosstyan/BPModel": [
+        "2212.03860.pdf",
+        "model_index.json",
+        "safety_checker/config.json",
+        "scheduler/scheduler_config.json",
+        "text_encoder/config.json",
+        "unet/config.json",
+        "vae/config.json"
+    ],
+    "DeepFloyd/IF-I-XL-v1.0": [
+        "config.yml",
+        "model_index.json",
+        "feature_extractor/preprocessor_config.json",
+        "pics/deepfloyd_if_scheme.jpg",
+        "pics/fid30k_if.jpg",
+        "pics/if_architecture.jpg",
+        "pics/loss.jpg",
+        "pics/lr.jpg",
+        "pics/scheme-h.jpg",
+        "safety_checker/config.json",
+        "scheduler/scheduler_config.json",
+        "text_encoder/config.json",
+        "text_encoder/model.safetensors.index.fp16.json",
+        "text_encoder/model.safetensors.index.json",
+        "unet/config.json"
+    ],
+    "EleutherAI/gpt-j-6b": [
+        "added_tokens.json",
+        "config.json",
+        "merges.txt",
+        "special_tokens_map.json",
+        "tokenizer_summary.json",
+        "tokenizer_config.json",
+        "vocab.json"
+    ],
+    "FacebookAI/roberta-large-mnli": [
+        "1907.11692.pdf",
+        "config.json",
+        "tokenizer_summary.json",
+        "tokenizer_config.json"
+    ],
+    "HuggingFaceM4/idefics2-8b": [
+        "2405.02246.pdf",
+        "config.json",
+        "model.safetensors.index.json",
+        "preprocessor_config.json",
+        "processor_config.json",
+        "special_tokens_map.json",
+        "tokenizer_config.json",
+        "assets/Idefics2_flowchart.png"
+    ],
+    "JosephusCheung/Guanaco": [
+        "config.json",
+        "generation_config.json",
+        "pytorch_model.bin.index.json",
+        "special_tokens_map.json",
+        "StupidBanner.png",
+        "tokenizer.json",
+        "tokenizer_config.json"
+    ],
+    "MahmoodLab/UNI": [
+        "s41591-024-02857-3.pdf",
+        "config.json",
+        "requesting_access.png"
+    ],
+    "NousResearch/Llama-2-7b-chat-hf": [
+        "added_tokens.json",
+        "config.json",
+        "generation_config.json",
+        "LICENSE.txt",
+        "model.safetensors.index.json",
+        "pytorch_model.bin.index.json",
+        "special_tokens_map.json",
+        "tokenizer.json",
+        "tokenizer_config.json",
+        "USE_POLICY.md"
+    ],
+    "Qwen/Qwen2-VL-7B-Instruct": [
+        "2409.12191.pdf",
+        "chat_template.json",
+        "config.json",
+        "LICENSE",
+        "model.safetensors.index.json",
+        "preprocessor_config.json",
+        "tokenizer_config.json"
+    ],
+    "SamLowe/roberta-base-go_emotions": [
+        "config.json",
+        "special_tokens_map.json",
+        "tokenizer_summary.json",
+        "tokenizer_config.json",
+        "trainer_state.json"
+    ],
+    "THUDM/CogVideoX-5b": [
+        "2408.06072.pdf",
+        "LICENSE",
+        "model_index.json",
+        "scheduler/scheduler_config.json",
+        "text_encoder/config.json",
+        "tokenizer/tokenizer_config.json",
+        "transformer/config.json",
+        "vae/config.json"
+    ],
+    "Tencent-Hunyuan/HunyuanDiT": [
+        "2405.08748.pdf",
+        "LICENSE.txt",
+        "Notice",
+        "dialoggen/config.json",
+        "dialoggen/model.safetensors.index.json"
+    ],
+    "WizardLMTeam/WizardCoder-15B-V1.0": [
+        "2306.08568.pdf",
+        "config.json",
+        "tokenizer_summary.json"
+    ],
+    "ai21labs/AI21-Jamba-1.5-Mini": [
+        "config.json",
+        "generation_config.json",
+        "model.safetensors.index.json",
+        "special_tokens_map.json",
+        "tokenizer_summary.json",
+        "tokenizer_config.json"
+    ],
+    "allenai/OLMo-7B": [
+        "2402.00838.pdf",
+        "config.json",
+        "requirements.txt",
+        "revisions.txt",
+        "tokenizer_summary.json"
+    ],
+    "amazon/MistralLite": [
+        "config.json",
+        "generation_config.json",
+        "pytorch_model.bin.index.json",
+        "special_tokens_map.json",
+        "tokenizer.json",
+        "tokenizer_config.json"
+    ],
+    "beomi/llama-2-ko-7b": [
+        "config.json",
+        "generation_config.json",
+        "LICENSE",
+        "model.safetensors.index.json",
+        "pytorch_model.bin.index.json",
+        "special_tokens_map.json",
+        "tokenizer_summary.json",
+        "tokenizer_config.json"
+    ],
+    "bigscience/bloom": [
+        "2211.05100.pdf",
+        "config.json",
+        "model.safetensors.index.json",
+        "pytorch_model.bin.index.json"
+    ],
+    "cerebras/Cerebras-GPT-13B": [
+        "2304.03208.pdf",
+        "config.json",
+        "pytorch_model.bin.index.json"
+    ],
+    "ctheodoris/Geneformer": [
+        "config.json",
+        "setup.py",
+        "docs/source/about.rst",
+        "docs/source/conf.py",
+        "docs/source/getstarted.rst",
+        "examples/cell_classification.ipynb",
+        "examples/gene_classification.ipynb",
+        "examples/in_silico_perturbation.ipynb",
+        "examples/tokenizing_scRNAseq_data.ipynb",
+        "examples/pretraining_new_model/obtain_nonzero_median_digests.ipynb",
+        "examples/pretraining_new_model/pretrain_geneformer_w_deepspeed.py",
+        "geneformer/classifier.py",
+        "geneformer/classifier_utils.py",
+        "geneformer/emb_extractor.py",
+        "geneformer/evaluation_utils.py",
+        "geneformer/pretrainer.py",
+        "geneformer/tokenizer.py",
+        "gf-12L-30M-i2048/config.json",
+        "gf-12L-95M-i4096/config.json",
+        "gf-12L-95M-i4096_CLcancer/config.json",
+        "gf-20L-95M-i4096/config.json",
+        "gf-6L-30M-i2048/config.json"
+    ],
+    "dalle-mini/dalle-mini": [
+        "config.json",
+        "merges.txt",
+        "special_tokens_map.json",
+        "tokenizer_summary.json",
+        "tokenizer_config.json"
+    ],
+    "databricks/dolly-v2-12b": [
+        "config.json",
+        "instruct_pipeline.py",
+        "special_tokens_map.json",
+        "tokenizer_summary.json",
+        "tokenizer_config.json"
+    ],
+    "deepseek-ai/DeepSeek-V2-Chat": [
+        "2405.04434.pdf",
+        "config.json",
+        "LICENSE",
+        "model.safetensors.index.summary.json",
+        "modeling_deepseek.py",
+        "tokenizer_summary.json",
+        "tokenizer_config.json"
+    ],
+    "distil-whisper/distil-large-v2": [
+        "2311.00430.pdf",
+        "config.json",
+        "preprocessor_config.json",
+        "tokenizer_summary.json"
+    ],
+    "facebook/seamless-m4t-v2-large": [
+        "2312.05187-1-100.pdf",
+        "config.json",
+        "model.safetensors.index.json"
+    ],
+    "google/gemma-7b": [
+        "config.json",
+        "generation_config.json",
+        "model.safetensors.index.json",
+        "special_tokens_map.json",
+        "tokenizer_config.json",
+        "examples/example_fsdp.py",
+        "examples/example_sft_qlora.py",
+        "examples/notebook_sft_peft.ipynb"
+    ],
+    "ibm-granite/granite-timeseries-ttm-v1": [
+        "2401.03955.pdf",
+        "config.json"
+    ],
+    "jbetker/tortoise-tts-v2": [
+        "2305.07243v2.pdf",
+        "api.py",
+        "do_tts.py",
+        "eval_multiple.py",
+        "is_this_from_tortoise.py",
+        "LICENSE",
+        "read.py",
+        "requirements.txt",
+        "setup.py",
+        "sweep.py",
+        "tortoise_tts.ipynb",
+        "tortoise/do_tts.py",
+        "tortoise/read.py",
+        "tortoise/data/riding_hood.txt",
+        "tortoise/models/autoregressive.py",
+        "tortoise/models/clvp.py",
+        "tortoise/models/diffusion_decoder.py",
+        "tortoise/models/vocoder.py"
+    ],
+    "lambdalabs/sd-image-variations-diffusers": [
+        "alias-montage.jpg",
+        "default-montage.jpg",
+        "earring.jpg",
+        "inputs.jpg",
+        "model_index.json",
+        "v1-montage.jpg",
+        "v2-montage.jpg",
+        "feature_extractor/preprocessor_config.json",
+        "image_encoder/config.json",
+        "safety_checker/config.json",
+        "scheduler/scheduler_config.json",
+        "unet/config.json",
+        "vae/config.json"
+    ],
+    "llm-blender/PairRM": [
+        "2306.02561.pdf",
+        "added_tokens.json",
+        "ranker_config.json",
+        "tokenizer_summary.json",
+        "tokenizer_config.json"
+    ],
+    "meta-llama/Meta-Llama-3-8B": [
+        "config.json",
+        "generation_config.json",
+        "LICENSE",
+        "model.safetensors.index.json",
+        "special_tokens_map.json",
+        "tokenizer_summary.json",
+        "USE_POLICY.md"
+    ],
+    "microsoft/Phi-3-mini-128k-instruct": [
+        "added_tokens.json",
+        "CODE_OF_CONDUCT.md",
+        "config.json",
+        "configuration_phi3.py",
+        "LICENSE",
+        "model.safetensors.index.json",
+        "modeling_phi3.py",
+        "NOTICE.md",
+        "sample_finetune.py",
+        "SECURITY.md",
+        "tokenizer.json",
+        "tokenizer_config.json"
+    ],
+    "mosaicml/mpt-7b": [
+        "adapt_tokenizer.py",
+        "attention.py",
+        "blocks.py",
+        "config.json",
+        "configuration_mpt.py",
+        "custom_embedding.py",
+        "ffn.py",
+        "flash_attn_triton.py",
+        "generation_config.json",
+        "hf_prefixlm_converter.py",
+        "LICENSE",
+        "modeling_mpt.py",
+        "norm.py",
+        "param_init_fns.py",
+        "pytorch_model.bin.index.json",
+        "requirements.txt",
+        "tokenizer_summary.json"
+    ],
+    "nlpaueb/legal-bert-base-uncased": [
+        "2020.findings-emnlp.261.pdf",
+        "config.json",
+        "tokenizer_config.json",
+        "vocab.txt"
+    ],
+    "nvidia/Nemotron-4-340B-Instruct": [
+        "LICENSE",
+        "model_config.yaml",
+        "model_weights/model.embedding.word_embeddings.weight/.zarray"
+    ],
+    "openai/whisper-large-v3": [
+        "2212.04356.pdf",
+        "config.json",
+        "generation_config.json",
+        "model.safetensors.index.fp32.json",
+        "tokenizer_summary.json"
+    ],
+    "openai-community/gpt2-xl": [
+        "config.json",
+        "generation_config.json",
+        "generation_config_for_text_generation.json",
+        "merges.txt",
+        "tokenizer_summary.json",
+        "tokenizer_config.json",
+        "vocab.json"
+    ],
+    "openbmb/MiniCPM-Llama3-V-2_5": [
+        "2408.01800.pdf",
+        "config.json",
+        "configuration.json",
+        "configuration_minicpm.py",
+        "modeling_minicpmv.py",
+        "processing_minicpmv.py",
+        "tokenizer_config.json"
+    ],
+    "openchat/openchat_3.5": [
+        "2309.11235.pdf",
+        "added_tokens.json",
+        "config.json",
+        "openchat.json",
+        "pytorch_model.bin.index.json",
+        "tokenizer_config.json"
+    ],
+    "openlm-research/open_llama_13b": [
+        "config.json",
+        "generation_config.json",
+        "pytorch_model.bin.index.json",
+        "special_tokens_map.json",
+        "tokenizer_config.json"
+    ],
+    "sambanovasystems/BLOOMChat-176B-v1": [
+        "config.json",
+        "LICENSE",
+        "special_tokens_map.json",
+        "tokenizer_config.json",
+        "images/Human_evaluation.png",
+        "images/Human_evaluation_gpt4.png",
+        "images/Multilingual_capabilities_comparison.png"
+    ],
+    "stabilityai/stable-diffusion-2-1": [
+        "2112.10752.pdf",
+        "model_index.json",
+        "scheduler/scheduler_config.json",
+        "text_encoder/config.json",
+        "unet/config.json",
+        "vae/config.json"
+    ],
+    "stanford-crfm/BioMedLM": [
+        "2403.18421.pdf",
+        "config.json",
+        "tokenizer_summary.json",
+        "tokenizer_config.json"
+    ],
+    "tiiuae/falcon-mamba-7b": [
+        "2410.05355.pdf",
+        "config.json",
+        "generation_config.json",
+        "mamba-paper.png",
+        "model.safetensors.index.json",
+        "tokenizer_summary.json"
+    ]
+}
