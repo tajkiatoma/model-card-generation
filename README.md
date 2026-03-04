@@ -32,3 +32,8 @@ Add your Gemini API key to the `GEMINI_API_KEY` variable in the `util/constant.p
     # model_ids_file_paths = helper.get_model_file_paths()
     # model_card_generator.process_batch_request_with_files(model_ids_file_paths)
 ```
+
+### Evaluate Result
+#### Calculate document level similarity between the original (reorganized) model cards and generated model cards (Fig. 9)
+Run the `model_card_evaluator/similarity_calculator/model_cards_similarity_calculator.py` script to calculate similarity between the original (reorganized) model cards and generated model cards. A boxplot will be generated inside the `data/graphs` directory with the name `distribution_of_model_card_similarity_scores.pdf`.
+

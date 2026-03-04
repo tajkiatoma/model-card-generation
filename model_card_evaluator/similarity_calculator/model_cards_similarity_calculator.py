@@ -55,16 +55,14 @@ if __name__ == '__main__':
     selected_models = helper.get_selected_repos()
     model_ids = selected_models['model_id'].tolist()
 
-    # model_ids = ['BAAI/bge-m3', 'CompVis/stable-diffusion-v1-4', 'FacebookAI/roberta-large-mnli', 'MahmoodLab/UNI', 'Qwen/Qwen2-VL-7B-Instruct']
-
     original_model_card_dir = path.REORGANIZED_ORIGINAL_MODEL_CARD_DIRECTORY
     generated_model_card_dir = path.GENERATED_MODEL_CARDS_DIRECTORY
     generated_model_card_without_paper_dir = path.GENERATED_MODEL_CARDS_WITHOUT_PAPER_DIRECTORY
     generated_model_card_without_config_dir = path.GENERATED_MODEL_CARDS_WITHOUT_CONFIG_DIRECTORY
     generated_model_card_without_tokenizer_dir = path.GENERATED_MODEL_CARDS_WITHOUT_TOKENIZER_DIRECTORY
 
-    similarity_scores = get_model_card_similarity_scores(model_ids, generated_model_card_dir, generated_model_card_without_tokenizer_dir)
+    similarity_scores = get_model_card_similarity_scores(model_ids, original_model_card_dir, generated_model_card_dir)
     print_similarity_stats(similarity_scores)
 
-    # plot_one_violin(similarity_scores, 0.0, 1.0,
-    #                 path.GRAPHS_DIRECTORY / 'distribution_of_model_card_similarity_scores.pdf')
+    plot_one_violin(similarity_scores, 0.0, 1.0,
+                    path.GRAPHS_DIRECTORY / 'distribution_of_model_card_similarity_scores.pdf')
