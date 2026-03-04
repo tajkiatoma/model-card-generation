@@ -82,10 +82,6 @@ if __name__ == '__main__':
     reorganized_model_card_dir = path.REORGANIZED_ORIGINAL_MODEL_CARD_DIRECTORY
     generated_model_card_dir = path.GENERATED_MODEL_CARDS_DIRECTORY
 
-    # generated_model_card_without_paper_dir = path.GENERATED_MODEL_CARDS_WITHOUT_PAPER_DIRECTORY
-    # generated_model_card_without_config_dir = path.GENERATED_MODEL_CARDS_WITHOUT_CONFIG_DIRECTORY
-    # generated_model_card_without_tokenizer_dir = path.GENERATED_MODEL_CARDS_WITHOUT_TOKENIZER_DIRECTORY
-
     count1 = get_not_available_sections_count(reorganized_model_card_dir)
     count2 = get_insufficient_information_sections_count(generated_model_card_dir)
 

@@ -37,3 +37,5 @@ Add your Gemini API key to the `GEMINI_API_KEY` variable in the `util/constant.p
 #### Calculate document level similarity between the original (reorganized) model cards and generated model cards (Fig. 9)
 Run the `model_card_evaluator/similarity_calculator/model_cards_similarity_calculator.py` script to calculate similarity between the original (reorganized) model cards and generated model cards. A boxplot will be generated inside the `data/graphs` directory with the name `distribution_of_model_card_similarity_scores.pdf`.
 
+#### Compare section level empty sections in original (reorganized) and generated model cards (Table 2)
+Run the `model_card_evaluator/not_available_section_lister.py` script to compare the section level empty sections in the original (reorganized) model cards and the difference in percentage point in the generated model cards. 
