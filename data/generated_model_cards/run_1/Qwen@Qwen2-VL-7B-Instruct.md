@@ -2,59 +2,56 @@
 This section provides fundamental information about the model, helping stakeholders understand its context and key characteristics.
 
 ### Person or organization developing model:
-The Qwen2-VL model series was developed by the Qwen Team at Alibaba Group (Wang et al., 2024, p. 1).
+The model was developed by the Qwen Team at Alibaba Group (2409.12191.pdf, p. 1). The copyright notice also attributes the work to Alibaba Cloud (LICENSE.txt).
 
 ### Model date:
-The research paper presenting the model was submitted to arXiv on October 3, 2024. The knowledge cutoff for the data used to train the model is June 2023 (Wang et al., 2024, p. 1, 5).
+- **Paper Submission (v2):** October 3, 2024 (2409.12191.pdf, p. 1).
+- **Training Data Cutoff:** June 2023 (2409.12191.pdf, p. 5).
 
 ### Model version:
-This model card describes the Qwen2-VL series, which is an advanced upgrade of the previous Qwen-VL models. The series includes three open-weight models with different parameter counts (Wang et al., 2024, p. 1, 3):
-*   **Qwen2-VL-2B:** The most efficient model, with 2 billion parameters (1.5B for the LLM and 675M for the vision encoder), designed for on-device execution. It provides adequate performance for scenarios with limited resources (Wang et al., 2024, p. 3).
-*   **Qwen2-VL-7B:** A performance-optimized model with 8 billion parameters (7.6B for the LLM and 675M for the vision encoder). It features significant upgrades for text recognition and video understanding and delivers strong performance across a broad range of visual tasks (Wang et al., 2024, p. 3).
-*   **Qwen2-VL-72B:** The most capable model, with 72 billion parameters. It offers further improvements in visual reasoning, instruction-following, decision-making, and agent capabilities, delivering optimal performance on complex tasks (Wang et al., 2024, p. 3).
+This is the Qwen2-VL series, which is an advanced upgrade of the previous Qwen-VL models (2409.12191.pdf, p. 1). The series includes three open-weight models with different parameter counts:
+- **Qwen2-VL-2B:** The most efficient model, designed for on-device execution (2409.12191.pdf, p. 3, Table 1).
+- **Qwen2-VL-7B:** A performance-optimized model with significant upgrades for text recognition and video understanding (2409.12191.pdf, p. 3, Table 1).
+- **Qwen2-VL-72B:** The most capable model, with improvements in visual reasoning, instruction-following, and agent capabilities (2409.12191.pdf, p. 3, Table 1).
 
-This series introduces key architectural upgrades over the original Qwen-VL, including Naive Dynamic Resolution and Multimodal Rotary Position Embedding (M-RoPE) (Wang et al., 2024, p. 1).
+The model type is specified as `qwen2_vl` and was developed with `transformers_version` 4.41.2 (config.json.txt).
 
 ### Model type:
-Qwen2-VL is a series of Large Vision-Language Models (LVLMs) designed for multimodal understanding, processing text, images, and videos (Wang et al., 2024, p. 1).
+The model is a Large Vision-Language Model (LVLM) belonging to the `Qwen2VLForConditionalGeneration` architecture (config.json.txt). It follows a common LVLM structure of a visual encoder connected to a Large Language Model (LLM) via a cross-modal connector (2409.12191.pdf, p. 1).
 
-*   **Architecture:** The model follows a common LVLM framework of a visual encoder connected to a Large Language Model (LLM). It uses a Vision Transformer (ViT) with approximately 675 million parameters as the vision encoder and the Qwen2 series for the language model component (Wang et al., 2024, p. 3-4). The specific architecture is `Qwen2VLForConditionalGeneration` (`config.json`).
-*   **Key Components:**
-    *   **Naive Dynamic Resolution:** Allows the model to process images of any resolution by dynamically converting them into a variable number of visual tokens, which more closely aligns with human perception (Wang et al., 2024, p. 1, 4).
-    *   **Multimodal Rotary Position Embedding (M-RoPE):** An enhancement that deconstructs rotary embeddings into temporal, height, and width components. This facilitates the effective fusion of positional information across text, images, and videos, improving comprehension of dynamic content like videos (Wang et al., 2024, p. 1, 4-5).
-*   **Model Size and Parameters:** The series is available in 2B, 8B, and 72B parameter versions (Wang et al., 2024, p. 3). The specific model described by the provided repository files has a total size of approximately 16.58 GB (`model.safetensors.index.json`). Key parameters from the configuration file include (`config.json`):
-    *   `hidden_size`: 3584
-    *   `intermediate_size`: 18944
-    *   `num_hidden_layers`: 28
-    *   `num_attention_heads`: 28
-    *   `num_key_value_heads`: 4
-    *   `vocab_size`: 152064
-*   **Context Length:** The model supports a maximum context length of 32,768 tokens (`config.json`, `tokenizer_config.json`).
+**Key Components:**
+- **Vision Encoder:** A Vision Transformer (ViT) with approximately 675 million parameters, which handles both image and video inputs (2409.12191.pdf, p. 4).
+- **Language Model:** The Qwen2 series of language models (2409.12191.pdf, p. 4).
+
+**Architectural Details:**
+- **Parameters:** The series includes models with 2B, 8B, and 72B parameters (2409.12191.pdf, p. 3). The specific model in this repository has 28 hidden layers, a hidden size of 3584, an intermediate size of 18944, 28 attention heads, and 4 key-value heads (config.json.txt).
+- **Context Length:** The model supports a maximum context length of 32,768 tokens (config.json.txt, tokenizer_config.json.txt).
+- **Size:** The total size of the model weights is 16.58 GB (model.safetensors.index.json.txt).
+- **Vocabulary Size:** 152,064 (config.json.txt).
+- **Key Innovations:**
+    - **Naive Dynamic Resolution:** Allows the model to process images of any resolution by converting them into a variable number of visual tokens (2409.12191.pdf, p. 4).
+    - **Multimodal Rotary Position Embedding (M-RoPE):** A novel position embedding that decomposes embeddings into temporal, height, and width components to effectively model positional information for text, images, and videos (2409.12191.pdf, p. 4-5).
 
 ### Training details:
-The Qwen2-VL models were trained using a three-stage methodology on Alibaba Cloud's PAI-Lingjun Intelligent Computing Service (Wang et al., 2024, p. 5, 8).
+The model was trained using a three-stage methodology (2409.12191.pdf, p. 5):
+1.  **Stage 1:** Training the Vision Transformer (ViT) component on a large corpus of image-text pairs to learn semantic understanding.
+2.  **Stage 2:** Unfreezing all parameters and training with a wider range of data, including mixed image-text content and visual question-answering datasets.
+3.  **Stage 3:** Locking the ViT parameters and performing exclusive fine-tuning of the LLM on instructional datasets.
 
-*   **Training Stages (Wang et al., 2024, p. 5):**
-    1.  **Stage 1 (ViT Pre-training):** The Vision Transformer (ViT) component is trained on a large corpus of image-text pairs to learn core visual-textual correlations. The LLM component is initialized from pre-trained Qwen2 weights.
-    2.  **Stage 2 (Full-parameter Pre-training):** All model parameters are unfrozen and trained on a cumulative total of 1.4 trillion tokens, including mixed image-text content, OCR data, and visual question-answering datasets. This stage enhances nuanced understanding and multitasking capabilities.
-    3.  **Stage 3 (Instruction Fine-tuning):** The ViT parameters are locked, and the LLM is exclusively fine-tuned on a diverse set of instruction-following datasets constructed in the ChatML format. This includes multimodal conversations, document parsing, and agent-based interactions.
-*   **Training Infrastructure (Wang et al., 2024, p. 8):**
-    *   **Hardware:** Alibaba Cloud's PAI-Lingjun Intelligent Computing Service.
-    *   **Software:** PyTorch version 2.1.2 with CUDA 11.8.
-    *   **Optimization Techniques:** Training was scaled using 3D parallelism (Data, Tensor, and Pipeline Parallelism). It also leveraged DeepSpeed's ZeRO-1 optimizer, sequence parallelism, selective checkpointing, and FlashAttention for memory and computational efficiency.
-*   **Generation Parameters (`generation_config.json`):**
-    *   `do_sample`: true
-    *   `temperature`: 0.01
-    *   `top_p`: 0.001
-    *   `top_k`: 1
-    *   `repetition_penalty`: 1.0
+**Training Data:**
+- The model was pre-trained on a cumulative total of 1.4 trillion tokens, including both text and image tokens (2409.12191.pdf, p. 6).
+- The instruction fine-tuning phase used the ChatML format to construct data for tasks like image QA, document parsing, video comprehension, and agent-based interactions (2409.12191.pdf, p. 6).
+
+**Training Infrastructure:**
+- **Hardware:** Trained on Alibaba Cloud's PAI-Lingjun Intelligent Computing Service (2409.12191.pdf, p. 8).
+- **Software:** Used PyTorch version 2.1.2 with CUDA 11.8, leveraging FlashAttention and other fused operators for efficiency (2409.12191.pdf, p. 8).
+- **Parallelism:** Employed 3D parallelism, combining data parallelism (DP), tensor parallelism (TP), and pipeline parallelism (PP) to scale training (2409.12191.pdf, p. 8).
 
 ### Paper or other resource for more information:
-*   **Primary Paper:** Wang, P., Bai, S., Tan, S., Wang, S., Fan, Z., Bai, J., ... & Lin, J. (2024). *Qwen2-VL: Enhancing Vision-Language Model's Perception of the World at Any Resolution*. arXiv preprint arXiv:2409.12191. This paper provides a comprehensive overview of the model's architecture, training process, and performance evaluations.
-*   **Code Repository:** The official code is available on GitHub at [https://github.com/QwenLM/Qwen2-VL](https://github.com/QwenLM/Qwen2-VL) (Wang et al., 2024, p. 1).
+- **Academic Paper:** Wang, P., Bai, S., Tan, S., Wang, S., Fan, Z., Bai, J., ... & Lin, J. (2024). *Qwen2-VL: Enhancing Vision-Language Model's Perception of the World at Any Resolution*. arXiv preprint arXiv:2409.12191 (2409.12191.pdf).
+- **Code Repository:** The official code is available at `https://github.com/QwenLM/Qwen2-VL` (2409.12191.pdf, p. 1).
 
 ### Citation details:
-To cite the model and its accompanying paper, please use the following BibTeX format (Wang et al., 2024):
 ```bibtex
 @misc{wang2024qwen2vl,
       title={Qwen2-VL: Enhancing Vision-Language Model's Perception of the World at Any Resolution}, 
@@ -65,17 +62,13 @@ To cite the model and its accompanying paper, please use the following BibTeX fo
       primaryClass={cs.CV}
 }
 ```
+(Derived from 2409.12191.pdf, p. 1)
 
 ### License:
-The model is licensed under the Apache License, Version 2.0 (`LICENSE.txt`). This is a permissive open-source license that allows users to:
-*   **Use:** Freely use the software for commercial and private purposes.
-*   **Modify:** Create and distribute derivative works.
-*   **Distribute:** Reproduce and distribute copies of the work or derivative works.
-
-Key conditions include retaining copyright and license notices. The license also includes a disclaimer of warranty and a limitation of liability (`LICENSE.txt`). The full license text is available at [http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0).
+The model is licensed under the Apache License, Version 2.0. This license allows for commercial use, modification, distribution, and private use. Users must include a copy of the license and copyright notice and state any changes made to the files. The license does not grant trademark rights and is provided "AS IS" without warranties (LICENSE.txt).
 
 ### Contact:
-No direct contact email is provided. For questions, issues, or feedback, users are encouraged to engage with the development team through the official GitHub repository: [https://github.com/QwenLM/Qwen2-VL](https://github.com/QwenLM/Qwen2-VL) (Wang et al., 2024, p. 1).
+Insufficient information.
 
 ---
 
@@ -83,20 +76,19 @@ No direct contact email is provided. For questions, issues, or feedback, users a
 This section outlines the intended applications of the model.
 
 ### Primary intended uses:
-The Qwen2-VL series is designed as a versatile, general-purpose Large Vision-Language Model with a wide range of capabilities for processing and understanding multimodal inputs (text, images, and videos).
+The Qwen2-VL series is designed as a versatile, general-purpose Large Vision-Language Model (LVLM) with a wide range of capabilities (2409.12191.pdf, p. 1, 7). Its primary uses include:
+- **General Visual Question Answering:** Answering questions based on the content of images and videos (2409.12191.pdf, p. 9).
+- **Document and Diagram Understanding:** Comprehending text and graphical information in documents, charts, and infographics (2409.12191.pdf, p. 11).
+- **Multilingual OCR:** Recognizing and understanding text in multiple languages within images, including English, Chinese, most European languages, Japanese, Korean, Arabic, and Vietnamese (2409.12191.pdf, p. 3, 11).
+- **Mathematical Reasoning:** Solving math problems embedded in visual contexts (2409.12191.pdf, p. 11).
+- **Video Understanding:** Comprehending content in videos up to 20 minutes in length, including question answering, dialogue, and content creation (2409.12191.pdf, p. 3, 11).
+- **Visual Agent Capabilities:** Performing sequential decision-making tasks such as UI operations on mobile devices, robotic control, and navigation based on visual inputs and text instructions (2409.12191.pdf, p. 7).
+- **Visual Grounding:** Localizing and referencing specific objects or regions within an image described by text (2409.12191.pdf, p. 6).
 
-*   **Core Capabilities (Wang et al., 2024, p. 2-3):**
-    *   **General Visual Question Answering:** Engaging in general chat about visual content, identifying objects, and describing complex scenes (Wang et al., 2024, p. 25-26).
-    *   **Document and Diagram Understanding:** Reading and interpreting text within documents, charts, and high-resolution infographics (Wang et al., 2024, p. 11, 27).
-    *   **Multilingual OCR:** Understanding and transcribing text in multiple languages from images, including English, Chinese, most European languages, Japanese, Korean, Arabic, and Vietnamese (Wang et al., 2024, p. 3, 11, 28-31).
-    *   **Video Understanding:** Comprehending and answering questions about video content, including extended-duration videos over 20 minutes in length (Wang et al., 2024, p. 3, 41-42).
-    *   **Visual Grounding and Referring Comprehension:** Localizing and identifying specific objects or regions in an image based on textual descriptions (Wang et al., 2024, p. 6, 11, 43).
-    *   **Mathematical and Code Reasoning:** Solving mathematical problems presented in visual formats and understanding algorithmic problems from screenshots (Wang et al., 2024, p. 11, 32-35).
-    *   **Visual Agent and Function Calling:** Acting as a visual agent to perform tasks like UI operations on mobile devices, interacting with tools through function calls based on visual and text inputs (Wang et al., 2024, p. 3, 7, 12, 44-45).
-*   **Input-Output Structure:** The model accepts a combination of text, images, and videos as input. The output is generated text, which can be a direct answer, a description, a piece of code, or a function call depending on the task (`chat_template.json`, Wang et al., 2024, p. 6-7).
+The model accepts interleaved text, image, and video inputs and generates textual responses (2409.12191.pdf, p. 1, 4).
 
 ### Primary intended users:
-The primary intended users are researchers and developers in the field of artificial intelligence. The open-weight release of the models is intended to enable these users to "harness the full potential in a variety of applications and research projects" and to "advance AI technologies" (Wang et al., 2024, p. 16).
+The model is intended for researchers and developers in the field of AI who wish to harness its capabilities for a variety of applications and research projects (2409.12191.pdf, p. 16).
 
 ### Out-of-scope uses:
 Insufficient information.
@@ -104,61 +96,30 @@ Insufficient information.
 ---
 
 ## How to Use
-This section outlines how to use the model.
+This section outlines how to use the model. 
 
-The model uses a specific chat template with special tokens to handle multimodal inputs. A conversation consists of turns from a `system`, `user`, and `assistant`.
+The model uses a specific chat template for formatting inputs, which supports roles like `system`, `user`, and `assistant`. Multimodal inputs (images and videos) are incorporated using special tokens.
 
-*   **Chat Template (`chat_template.json`):**
-    Each message is enclosed by `<|im_start|>{role}\n{content}<|im_end|>\n`.
-    *   A system prompt is automatically added if the first message is not from the system: `<|im_start|>system\nYou are a helpful assistant.<|im_end|>\n`.
-    *   Visual inputs (images or videos) are embedded within the user's text prompt using special tokens. For example, an image is represented as `<|vision_start|><|image_pad|><|vision_end|>`.
+**Chat Template Structure:**
+The input should be formatted as a sequence of messages. If the first message is not from the `system`, a default system prompt "You are a helpful assistant." is added. Each message is enclosed by `<|im_start|>` and `<|im_end|>` tokens.
 
-*   **Example: Dialogue with Images (Wang et al., 2024, p. 6):**
-    ```
-    <|im_start|>user
-    <|vision_start|>Picture1.jpg<|vision_end|><|vision_start|>Picture2.jpg<|vision_end|>What do the two pictures have in common?<|im_end|>
-    <|im_start|>assistant
-    Both pictures are of SpongeBob SquarePants.<|im_end|>
-    ```
+- **Text Input:**
+  `<|im_start|>user\nWhat is in the image?<|im_end|>\n`
+- **Image/Video Input:**
+  Image and video content is represented by special placeholder tokens within the user's message.
+  - For an image: `<|vision_start|><|image_pad|><|vision_end|>`
+  - For a video: `<|vision_start|><|video_pad|><|vision_end|>`
 
-*   **Example: Visual Grounding (Referring Comprehension) (Wang et al., 2024, p. 7):**
-    The model can generate bounding box coordinates for objects referenced in text.
-    *   **Input:**
-        ```
-        <|im_start|>user
-        <|vision_start|>Picture1.jpg<|vision_end|>Detect the bounding box of 'the red car'<|im_end|>
-        ```
-    *   **Sample Output:**
-        ```
-        <|im_start|>assistant
-        <|object_ref_start|>the red car<|object_ref_end|><|box_start|>(701,531),(869,675)<|box_end|>
-        <|im_end|>
-        ```
-
-*   **Example: Visual Agent for UI Operations (Wang et al., 2024, p. 7):**
-    The model can be prompted with a system message defining a set of actions (e.g., `Tap`, `Home`) and then perform multi-step reasoning to complete a task on a device.
-    *   **Input:**
-        ```
-        <|im_start|>system
-        You are a helpful assistant.
-        # Actions
-        ## You have the following actions.
-        ### Tap
-        ...
-        *FUNCTION*: The action to take...<|im_end|>
-        <|im_start|>user
-        Find a pizza restaurant nearby in Map.<|vision_start|>Screenshot_1.jpg<|vision_end|><|im_end|>
-        ```
-    *   **Sample Output:**
-        ```
-        <|im_start|>assistant
-        Several e-mails are displaying on the phone screen. To open Map, I need go back to the home screen and find the corresponding app icon.
-        *FUNCTION*: Home *ARGS*: {}
-        *RESULT*: <|vision_start|>Screenshot_2.jpg<|vision_end|>
-        *RETURN*: I return to the home screen. Next, I need to find the icon of Map and tap on it.
-        ...
-        <|im_end|>
-        ```
+**Example of a multimodal conversation:**
+```
+<|im_start|>system
+You are a helpful assistant.<|im_end|>
+<|im_start|>user
+Picture 1: <|vision_start|><|image_pad|><|vision_end|>What is this?<|im_end|>
+<|im_start|>assistant
+This is a cat.<|im_end|>
+```
+(chat_template.json.txt, tokenizer_config.json.txt)
 
 ---
 
@@ -166,18 +127,15 @@ The model uses a specific chat template with special tokens to handle multimodal
 This section addresses variables that may impact the model's performance.
 
 ### Relevant factors:
-Based on the model's design and evaluation, the following are key factors that influence its performance:
-*   **Image Resolution and Aspect Ratio:** The model is specifically designed with a "Naive Dynamic Resolution" mechanism to handle images of varying resolutions and aspect ratios effectively. The ablation studies confirm that performance on perceptual tasks like OCR and VQA is sensitive to image size, with dynamic resolution providing a robust and efficient approach compared to fixed-size strategies (Wang et al., 2024, p. 1, 14).
-*   **Language:** The model has multilingual capabilities, and its performance on tasks like OCR varies across different languages. It was evaluated on English, Chinese, Korean, Japanese, French, German, Italian, Russian, Vietnamese, and Arabic (Wang et al., 2024, p. 3, 9).
-*   **Modality:** The model's performance is dependent on the input modality (text, image, video). Its M-RoPE architecture was specifically developed to better handle temporal information in videos (Wang et al., 2024, p. 5).
-*   **Task Complexity:** Performance varies significantly based on the complexity of the task, from simple object recognition to multi-step agent-based reasoning or advanced multi-disciplinary problems (Wang et al., 2024, p. 9).
+- **Image Resolution and Aspect Ratio:** The model is designed to handle images of any resolution and aspect ratio through its "Naive Dynamic Resolution" mechanism, which converts images into a variable number of tokens (2409.12191.pdf, p. 4).
+- **Language:** The model supports multilingual context understanding within images, including English, Chinese, most European languages, Japanese, Korean, Arabic, and Vietnamese (2409.12191.pdf, p. 3).
+- **Video Duration:** The model is capable of understanding videos over 20 minutes in length (2409.12191.pdf, p. 3).
 
 ### Evaluation factors:
-The model was evaluated across the relevant factors identified above:
-*   **Task Type:** Performance was disaggregated across a wide array of benchmarks, each representing a different capability, such as general visual question answering, document understanding, mathematical reasoning, video comprehension, and agent abilities (Wang et al., 2024, p. 9-12).
-*   **Language:** Multilingual OCR performance was explicitly reported for Korean, Japanese, French, German, Italian, Russian, Vietnamese, and Arabic (Wang et al., 2024, p. 9, Table 3).
-*   **Model Scale:** Results were reported separately for the 2B, 7B, and 72B model versions to analyze scaling laws (Wang et al., 2024, p. 9, 15).
-*   **Image Resolution:** An ablation study was conducted to analyze the impact of different image resolutions (both fixed and dynamic) on performance across several benchmarks (Wang et al., 2024, p. 14).
+The model was evaluated across the factors mentioned above:
+- **Resolution:** Performance was tested on benchmarks requiring high-resolution understanding, such as DocVQA and OCRBench (2409.12191.pdf, p. 9, Table 2).
+- **Language:** Multilingual OCR capabilities were evaluated on the MTVQA dataset and an internal benchmark covering Korean, Japanese, French, German, Italian, Russian, Vietnamese, and Arabic (2409.12191.pdf, p. 9, Table 3).
+- **Video Duration:** Video understanding was evaluated on benchmarks with varying video lengths, including Video-MME which contains videos up to one hour (2409.12191.pdf, p. 10, 12).
 
 ---
 
@@ -185,25 +143,20 @@ The model was evaluated across the relevant factors identified above:
 This section describes how the model's performance is evaluated.
 
 ### Model performance measures:
-The model's performance was assessed using a variety of metrics specific to each evaluation benchmark (Wang et al., 2024, p. 9-10):
-*   **Accuracy:** Used for benchmarks like MMMU, DocVQA, InfoVQA, AI2D, ChartQA, and MathVista.
-*   **Score:** Used for composite benchmarks like OCRBench and MME.
-*   **Success Rate (SR):** Used for agent tasks like Number Line, BlackJack, ALFRED, R2R, and REVERIE to measure if the agent successfully completed the task.
-*   **Goal-Condition Success (GC):** A metric for the ALFRED benchmark that measures the completion of sub-goals.
-*   **Type Match (TM) and Exact Match (EM):** Used for function calling benchmarks (FnCall, AITZ) to measure the accuracy of the selected function and its arguments, respectively.
-
-The selection of these metrics is justified by their common usage as standard evaluation measures for their respective well-established benchmarks.
+The model's performance is assessed using a variety of metrics specific to different tasks and benchmarks (2409.12191.pdf, p. 9-10):
+- **General VQA and Reasoning:** Accuracy or benchmark-specific scores are reported for datasets like MMMU, DocVQA, MMBench, and MathVista (2409.12191.pdf, p. 9, Table 2).
+- **Agent Tasks:**
+    - **Success Rate (SR):** The rate of successfully completing a task.
+    - **Goal-Condition Success (GC):** The rate of satisfying all sub-goals of a task.
+    - **Type Match (TM):** The accuracy of selecting the correct function or action type.
+    - **Exact Match (EM):** The accuracy of both the function selection and its arguments.
+    (2409.12191.pdf, p. 10, Table 5)
 
 ### Decision thresholds:
-For text generation, the model uses the following decision thresholds (`generation_config.json`):
-*   **`temperature`:** 0.01
-*   **`top_p`:** 0.001
-*   **`top_k`:** 1
-
-These parameters result in highly deterministic output, favoring the most likely token at each step of the generation process.
+Insufficient information.
 
 ### Variation approaches:
-Insufficient information.
+The model's performance was measured on the official test or validation sets of the respective benchmarks mentioned in the paper (2409.12191.pdf, Section 3).
 
 ---
 
@@ -211,22 +164,20 @@ Insufficient information.
 This section provides details about the datasets used to evaluate the model.
 
 ### Datasets:
-The model was evaluated on a comprehensive set of public, state-of-the-art benchmarks to assess its capabilities across various domains. These datasets are publicly available and widely used for evaluating LVLMs.
-
-*   **General VQA:** RealWorldQA, MMStar, MMVet, MMT-Bench, MMBench, MME, HallusionBench (Wang et al., 2024, p. 9).
-*   **Document & Diagram Reading:** DocVQA, ChartQA, InfoVQA, TextVQA, AI2D, OCRBench (Wang et al., 2024, p. 9, 11).
-*   **Multilingual OCR:** MTVQA and an internal benchmark covering Korean, Japanese, French, German, Italian, Russian, Vietnamese, and Arabic (Wang et al., 2024, p. 9, 11).
-*   **Mathematical Reasoning:** MathVista, MathVision (Wang et al., 2024, p. 9, 11).
-*   **Referring Expression Comprehension:** RefCOCO, RefCOCO+, RefCOCOg (Wang et al., 2024, p. 11-12).
-*   **Video Understanding:** MVBench, PerceptionTest, EgoSchema, Video-MME (Wang et al., 2024, p. 10, 11).
-*   **Agent & Function Calling:** AITZ, Number Line, BlackJack, EZPoint, Point24, ALFRED, R2R, REVERIE, and an internal FnCall dataset (Wang et al., 2024, p. 10, 12).
+The model was evaluated on a wide range of public benchmarks to assess its diverse capabilities (2409.12191.pdf, Section 3, p. 9-13):
+- **General VQA:** RealWorldQA, MMStar, MMVet, MMT-Bench, MMBench, MME, HallusionBench.
+- **Document & OCR:** DocVQA, InfoVQA, ChartQA, TextVQA, OCRBench, MTVQA, AI2D.
+- **Mathematical Reasoning:** MathVista, MathVision.
+- **Referring Expression Comprehension:** RefCOCO, RefCOCO+, RefCOCOg.
+- **Video Understanding:** MVBench, PerceptionTest, EgoSchema, Video-MME.
+- **Agent Capabilities:** AITZ (UI Operations), ALFRED (Robotic Control), RL4VLM (Card Games), R2R and REVERIE (Vision-Language Navigation).
 
 ### Motivation:
-These datasets were chosen to provide an extensive and rigorous evaluation of the Qwen2-VL series. The selection covers a wide spectrum of visual perception and high-level cognition tasks, allowing for a comprehensive comparison against previous state-of-the-art and closed-source models like GPT-4o. The benchmarks were selected to demonstrate the model's specific advantages in areas like document understanding, multilingual capabilities, and agent abilities (Wang et al., 2024, p. 8-9).
+These datasets were chosen to provide a comprehensive and rigorous evaluation of the model's performance across its intended use cases, including general visual perception, document understanding, multilingual recognition, video comprehension, and agent abilities (2409.12191.pdf, p. 9).
 
 ### Preprocessing:
-*   **Image Preprocessing:** Input images are normalized using a mean of `[0.48145466, 0.4578275, 0.40821073]` and a standard deviation of `[0.26862954, 0.26130258, 0.27577711]` (`preprocessor_config.json`). For the dynamic resolution approach, small images are upscaled to surpass a minimum pixel threshold (`min_pixels`) before being fed into the model (Wang et al., 2024, p. 14).
-*   **Video Preprocessing:** For the Video-MME benchmark, which includes videos up to one hour long, the maximum number of frames extracted per video was limited to 768 during evaluation (Wang et al., 2024, p. 12).
+- For the Video-MME benchmark, the maximum number of frames extracted per video was limited to 768 during evaluation (2409.12191.pdf, p. 12).
+- For dynamic resolution evaluation, images were upscaled to surpass a specified `min_pixels` threshold before being input to the model (2409.12191.pdf, p. 14).
 
 ---
 
@@ -234,23 +185,23 @@ These datasets were chosen to provide an extensive and rigorous evaluation of th
 This section provides details about the datasets used to train the model.
 
 ### Datasets:
-The model was trained on a large-scale, diverse corpus of multimodal data totaling 1.4 trillion tokens (Wang et al., 2024, p. 6).
-*   **Pre-training Data:** The pre-training dataset is a diverse mix that includes (Wang et al., 2024, p. 5):
-    *   Image-text pairs
-    *   Optical Character Recognition (OCR) data
-    *   Interleaved image-text articles
-    *   Visual Question Answering (VQA) datasets
-    *   Video dialogues
-    *   Image knowledge datasets
-    The data sources primarily consist of cleaned web pages, open-source datasets, and synthetic data (Wang et al., 2024, p. 5).
-*   **Instruction Fine-tuning Data:** For the final stage of training, a dataset of instruction-following data was constructed using the ChatML format. This included pure text-based dialogues as well as multimodal conversational data covering image question-answering, document parsing, multi-image comparison, video comprehension, and agent-based interactions (Wang et al., 2024, p. 6).
+The model was pre-trained on a cumulative total of 1.4 trillion tokens (2409.12191.pdf, p. 6). The training data is a diverse, multimodal corpus sourced from cleaned web pages, open-source datasets, and synthetic data (2409.12191.pdf, p. 5). The dataset types include:
+- Image-text pairs
+- Optical Character Recognition (OCR) data
+- Interleaved image-text articles
+- Visual Question Answering (VQA) datasets
+- Video dialogues
+- Image knowledge datasets
+- Purely textual data (2409.12191.pdf, p. 5-6)
 
 ### Motivation:
-The choice of a diverse, large-scale dataset was motivated by the goal of developing a robust and versatile multimodal understanding capability. The mix of image-text pairs, OCR data, and VQA datasets in pre-training was instrumental for building a strong foundation of core visual-textual correlations. The inclusion of multimodal instruction data in the fine-tuning stage was aimed at enhancing the model's ability to understand and execute a wide range of instructions across various modalities (Wang et al., 2024, p. 5-6).
+The diverse data composition was chosen to develop a robust multimodal understanding capability, enabling the model to learn the intricate relationships between visual and textual information and handle a wide range of instructions and modalities (2409.12191.pdf, p. 5-6).
 
 ### Preprocessing:
-*   **Video Data:** To preserve information, videos in the training set were sampled at two frames per second. To balance computational demands with comprehension, the resolution of each video frame was dynamically adjusted to limit the total number of tokens per video to 16,384 (Wang et al., 2024, p. 5).
-*   **Data Formatting:** Vision and text inputs are demarcated using special tokens. `<|vision_start|>` and `<|vision_end|>` are inserted at the start and end of the image feature sequence. For dialogue data, each turn is marked with `<|im_start|>` and `<|im_end|>` tokens to follow the ChatML format (Wang et al., 2024, p. 6).
+- **Dialogue Formatting:** Instruction-tuning data was constructed using the ChatML format, where interactions are marked with `<|im_start|>` and `<|im_end|>` tokens (2409.12191.pdf, p. 6).
+- **Visual Data Demarcation:** Visual inputs (images/videos) are demarcated by `<|vision_start|>` and `<|vision_end|>` tokens (2409.12191.pdf, p. 6).
+- **Video Sampling:** Videos were sampled at two frames per second. To manage computational load, the resolution of each frame was dynamically adjusted to limit the total number of tokens per video to 16,384 (2409.12191.pdf, p. 5).
+- **Image Processing:** Input images are normalized using a mean of `[0.48145466, 0.4578275, 0.40821073]` and a standard deviation of `[0.26862954, 0.26130258, 0.27577711]` (preprocessor_config.json.txt).
 
 ---
 
@@ -258,12 +209,44 @@ The choice of a diverse, large-scale dataset was motivated by the goal of develo
 This section presents disaggregated evaluation results.
 
 ### Unitary results:
-The paper provides extensive quantitative results disaggregated by model size, task, and language.
+The performance of the Qwen2-VL series was benchmarked across various tasks. Below are some key results for the 72B model compared to previous State-of-the-Art (SoTA) and other leading models.
 
-*   **Performance by Model Size and Benchmark:** Table 2 compares the performance of Qwen2-VL-2B, Qwen2-VL-7B, and Qwen2-VL-72B against previous state-of-the-art models across 20 benchmarks, showing strong scaling with model size (Wang et al., 2024, p. 9). For example, on DocVQA, the scores are 90.1, 94.5, and 96.5 for the 2B, 7B, and 72B models, respectively.
-*   **Performance by Language:** Table 3 shows the multilingual OCR performance of Qwen2-VL-72B compared to GPT-4o across 8 languages. Qwen2-VL-72B achieves higher scores in most languages, such as 94.5 vs. 87.8 in Korean and 94.1 vs. 89.7 in French (Wang et al., 2024, p. 9).
-*   **Performance by Capability:** Figure 6(a) illustrates how performance scales with model size across five capability dimensions: OCR, Video, General VQA, MMMU (college-level problems), and Math. Performance improves consistently with model size, especially for mathematical abilities (Wang et al., 2024, p. 16).
-*   **Performance by Training Data Volume:** Figure 6(b) shows the performance of Qwen2-VL-7B on several benchmarks as the number of training tokens increases during the second pre-training stage. Performance on tasks like AI2D and InfoVQA shows steady improvement as more data is used (Wang et al., 2024, p. 16).
+**General & Document VQA Benchmarks (Accuracy %):**
+| Benchmark | Previous SoTA | Qwen2-VL-72B |
+|---|---|---|
+| DocVQA | 94.1 | **96.5** |
+| InfoVQA | 82.0 | **84.5** |
+| TextVQA | 84.4 | **85.5** |
+| RealWorldQA | 72.2 | **77.8** |
+| MMStar | 67.1 | **68.3** |
+| MathVista | 69.0 | **70.5** |
+(2409.12191.pdf, p. 9, Table 2)
+
+**Video Understanding Benchmarks (Accuracy %):**
+| Benchmark | GPT-4o | Qwen2-VL-72B |
+|---|---|---|
+| MVBench | 73.6 | **73.6** |
+| PerceptionTest | 68.0 | **68.0** |
+| Video-MME | 71.9/77.2 | **71.2/77.8** |
+(2409.12191.pdf, p. 10, Table 4)
+
+**Multilingual OCR (Internal Benchmark, Accuracy %):**
+| Language | GPT-4o | Qwen2-VL-72B |
+|---|---|---|
+| French | 89.7 | **94.1** |
+| German | 88.3 | **91.5** |
+| Italian | 74.1 | **89.8** |
+| Russian | 96.8 | **97.2** |
+(2409.12191.pdf, p. 9, Table 3)
+
+**Agent Capabilities (Success Rate %):**
+| Benchmark | Metric | GPT-4o | Qwen2-VL-72B |
+|---|---|---|---|
+| AITZ (UI) | EM | 35.3 | **72.1** |
+| Number Line | SR | 91.5 | **100.0** |
+| ALFRED (Robotics) | SR | - | **67.8** |
+| R2R (Navigation) | SR | 43.7 | **51.7** |
+(2409.12191.pdf, p. 10, Table 5)
 
 ### Intersectional results:
 Insufficient information.
@@ -274,31 +257,23 @@ Insufficient information.
 This section outlines the memory or hardware requirements for loading, deploying, and training the model.
 
 ### Loading Requirements:
-The total size of the model weights is approximately 16.58 GB (`model.safetensors.index.json`). The model uses `bfloat16` precision (`config.json`). Therefore, loading and running the model for inference requires a GPU or system with at least 17 GB of VRAM/RAM.
+- The total size of the model weights is approximately 16.58 GB (model.safetensors.index.json.txt).
+- The Qwen2-VL-2B model is specifically designed to be efficient enough for on-device execution (2409.12191.pdf, p. 3, Table 1).
 
 ### Deploying Requirements:
 Insufficient information.
 
 ### Training or Fine-tuning Requirements:
-Training the Qwen2-VL models requires a large-scale, distributed computing environment.
-*   **Platform:** The models were trained on Alibaba Cloud's PAI-Lingjun Intelligent Computing Service (Wang et al., 2024, p. 8).
-*   **Software:** The training stack used PyTorch 2.1.2 and CUDA 11.8 (Wang et al., 2024, p. 8).
-*   **Hardware:** While specific GPU counts are not provided, the use of 3D parallelism (Data, Tensor, and Pipeline) for the 72B model implies a multi-node cluster of high-end accelerator cards (e.g., NVIDIA A100 or H100 GPUs) is necessary for training from scratch or full fine-tuning (Wang et al., 2024, p. 8).
+The model was trained on Alibaba Cloud's PAI-Lingjun Intelligent Computing Service, a large-scale GPU cluster infrastructure (2409.12191.pdf, p. 8). The training process utilized:
+- **Software:** PyTorch 2.1.2 and CUDA 11.8 (2409.12191.pdf, p. 8).
+- **Parallelism Strategy:** A combination of data parallelism, tensor parallelism, and pipeline parallelism (3D parallelism) was used to scale training, indicating that training requires a multi-GPU, multi-node environment (2409.12191.pdf, p. 8).
 
 ---
 
 ## Ethical Considerations
-This section discusses the ethical considerations in model development, including challenges, risks, and solutions.
+This section discusses the ethical considerations in model development, including challenges, risks, and solutions. 
 
-The training data for Qwen2-VL includes "cleaned web pages, open-source datasets, and synthetic data" (Wang et al., 2024, p. 5). While the term "cleaned" is used, the provided documents do not specify the exact filtering methods or what types of data (e.g., personal information, protected attributes) were removed or retained.
-
-*   **Risks:** As a general-purpose large vision-language model, Qwen2-VL is susceptible to the same risks inherent in similar technologies. These include, but are not limited to:
-    *   Generating biased, harmful, or toxic content.
-    *   Creating or perpetuating misinformation.
-    *   Potential for misuse in applications like surveillance or generating non-consensual content.
-    *   Reinforcing societal biases present in the training data.
-*   **Risk Mitigation:** The provided paper and repository files do not detail specific risk mitigation strategies, such as bias evaluations, red-teaming efforts, or safety-specific fine-tuning. The Apache 2.0 license includes a disclaimer of warranty and limitation of liability, placing the responsibility on the user to determine the appropriateness of using the model and to assume any associated risks (`LICENSE.txt`).
-*   **Sensitive Data:** It is not specified whether sensitive data was used during training. Given that a portion of the data comes from web pages, it is possible that personal or sensitive information was present in the raw data corpus.
+Insufficient information.
 
 ---
 
@@ -306,14 +281,12 @@ The training data for Qwen2-VL includes "cleaned web pages, open-source datasets
 This section lists unresolved issues and provides guidance for users.
 
 ### Caveats:
-The developers have identified several areas where the model has limitations:
-*   **Complex Reasoning:** On the MMMU benchmark, which evaluates massive multi-discipline understanding, the model's performance lags behind top-tier closed-source models like GPT-4o. This indicates "room for improvement when handling more complex and challenging problem sets" (Wang et al., 2024, p. 9).
-*   **Long Video Understanding:** During evaluation on the Video-MME benchmark, the number of frames extracted per video was limited to 768. This may have negatively impacted performance on very long videos (over 20 minutes). Future work is planned to extend the model's capabilities for longer sequences (Wang et al., 2024, p. 12).
-*   **Vision-Language Navigation (VLN):** The model's performance on VLN tasks (R2R, REVERIE) is "significantly behind current specialized VLN models." This gap is attributed to the model's difficulty in generating complete and structured map information from a series of visual inputs, which remains a major challenge for general-purpose multimodal models (Wang et al., 2024, p. 13).
+- **Performance Gaps:** The model's performance, while strong, still lags behind top-tier proprietary models like GPT-4o on certain complex, college-level reasoning benchmarks such as MMMU (2409.12191.pdf, p. 9).
+- **Specialized Tasks:** For highly specialized tasks like Vision-Language Navigation (VLN), the model's performance is comparable to other generalist models but falls "significantly behind" specialized models. This is attributed to the challenge of accurately modeling 3D environments from 2D images (2409.12191.pdf, p. 13).
+- **Long Video Evaluation:** When evaluating on very long videos (e.g., up to one hour in Video-MME), the number of extracted frames was limited to 768, which could potentially impact performance on tasks requiring comprehension of the entire video sequence (2409.12191.pdf, p. 12).
 
 ### Recommendations:
-Based on the identified caveats, users should consider the following:
-*   For tasks requiring expert-level, multi-disciplinary reasoning, the model's outputs should be carefully verified.
-*   When using the model for understanding very long videos, performance may degrade. For critical applications, users should be aware of this limitation.
-*   For specialized tasks like autonomous navigation in 3D environments, dedicated models may provide better performance than Qwen2-VL in its current state.
-*   Users should be aware of the general ethical risks associated with large language models and use the model responsibly.
+- **Future Work:** The developers plan to focus on extending the model to support longer sequences, which would improve its performance on long-video understanding tasks (2409.12191.pdf, p. 12).
+- **Open Access:** The model weights are openly accessible to "enable researchers and developers to harness the full potential in a variety of applications and research projects" (2409.12191.pdf, p. 16).
+
+---
