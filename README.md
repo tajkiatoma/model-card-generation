@@ -23,10 +23,10 @@ A model card will be generated inside the `data/generated_model_cards/run_2` dir
 ## Reproduce Result of the Paper
 
 ### Download Repository Files
-Run `data_processor/hf_repo_cloner.py` script to download the repository files.
+Add your Hugging Face access token to the `HF_ACCESS_TOKEN` variable in the `util/constant.py` file. Then, run the `data_processor/hf_repo_cloner.py` script to download the repository files. 
 
 ### Generate Model Cards
-Uncomment the following code from the `model_card_generator/model_card_generator.py` file to generate model cards for the repositories:
+Add your Gemini API key to the `GEMINI_API_KEY` variable in the `util/constant.py` file. Then, uncomment the following code from the `model_card_generator/model_card_generator.py` file to generate model cards for the repositories:
 
 ```python
     # model_ids_file_paths = helper.get_model_file_paths()
