@@ -79,8 +79,4 @@ if __name__ == '__main__':
     correctness_evaluator = GeminiCorrectnessEvaluator(Path('system_instruction_common.md'), get_json_schema(), gemini_client)
 
     model_ids_file_paths = helper.get_file_paths_for_jury()
-
-    model_id = 'CAMB-AI/MARS5-TTS'
-    correctness_evaluator.process_single_request(model_id, model_ids_file_paths[model_id], 1)
-
-    # correctness_evaluator.process_batch_request_with_files(model_ids_file_paths, 1)
+    correctness_evaluator.process_batch_request_with_files(model_ids_file_paths)

@@ -83,17 +83,9 @@ class OMiniCorrectnessEvaluator(BaseCorrectnessEvaluator):
 
 
 if __name__ == '__main__':
-    gpt_5_client = OpenAIReasoningJsonClient(constants.GPT_5, constants.ASGAARD_OPENAI_API_KEY)
+    gpt_5_client = OpenAIReasoningJsonClient(constants.GPT_5, constants.OPENAI_API_KEY)
     correctness_evaluator = OMiniCorrectnessEvaluator(Path('system_instruction_common.md'), get_json_schema(),
                                                       gpt_5_client)
 
     model_ids_file_paths = helper.get_file_paths_for_jury()
-
-    model_id = 'CAMB-AI/MARS5-TTS'
-    correctness_evaluator.process_single_request(model_id, model_ids_file_paths[model_id], 2)
-
-    # with open(path.CONFLICT_REPOS_LIST_FILE, 'r', encoding='utf-8') as file:
-    #     conflict_model_ids = json.load(file)
-    # conflict_model_ids_file_paths = {model_id: model_ids_file_paths[model_id] for model_id in conflict_model_ids}
-    #
-    # correctness_evaluator.process_batch_request_with_files(conflict_model_ids_file_paths, 2)
+    correctness_evaluator.process_batch_request_with_files(model_ids_file_paths)

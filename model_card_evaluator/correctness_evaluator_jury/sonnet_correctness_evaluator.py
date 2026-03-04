@@ -15,9 +15,4 @@ if __name__ == '__main__':
     correctness_evaluator = SonnetCorrectnessEvaluator(Path('system_instruction_sonnet.md'), None, sonnet_client) # json schema is added in the prompt template
 
     model_ids_file_paths = helper.get_file_paths_for_jury()
-    print(len(model_ids_file_paths))
-
-    model_id = 'facebook/seamless-m4t-v2-large'
-    correctness_evaluator.process_single_request(model_id, model_ids_file_paths[model_id], 2)
-
-    # correctness_evaluator.process_batch_request_with_files(model_ids_file_paths, 2)
+    correctness_evaluator.process_batch_request_with_files(model_ids_file_paths)
