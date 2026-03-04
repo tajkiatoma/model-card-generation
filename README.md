@@ -21,3 +21,14 @@ For, `file_paths`, specify the repository files you want to include in the model
 A model card will be generated inside the `data/generated_model_cards/run_2` directory with your provided name.
 
 ## Reproduce Result of the Paper
+
+### Download Repository Files
+Run `data_processor/hf_repo_cloner.py` script to download the repository files.
+
+### Generate Model Cards
+Uncomment the following code from the `model_card_generator/model_card_generator.py` file to generate model cards for the repositories:
+
+```python
+    # model_ids_file_paths = helper.get_model_file_paths()
+    # model_card_generator.process_batch_request_with_files(model_ids_file_paths)
+```

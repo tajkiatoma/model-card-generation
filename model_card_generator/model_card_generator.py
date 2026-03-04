@@ -28,7 +28,7 @@ if __name__ == "__main__":
     gemini_client = GenAIClient(constants.GEMINI_2_5_PRO_PREVIEW, constants.GEMINI_API_KEY)
     model_card_generator = ModelCardGenerator(Path('system_instruction.md'), None, gemini_client)
 
-    # model_ids_file_paths = helper.get_repo_files_without_tokenizer_files()
+    # model_ids_file_paths = helper.get_model_file_paths()
     # model_card_generator.process_batch_request_with_files(model_ids_file_paths)
 
     model_id = 'CohereForAI/c4ai-command-r-plus'
