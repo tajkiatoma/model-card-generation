@@ -43,5 +43,7 @@ Run the `model_card_evaluator/not_available_section_lister.py` script to compare
 #### Run jury
 1. Add your Gemini, Anthropic and OpenAI API keys to the `GEMINI_API_KEY`, `ANTHROPIC_API_KEY` and `OPENAI_API_KEY` variables respectively in the `util/constant.py` file. 
 2. Run the `gemini_correctness_evaluator.py`, `sonnet_correctness_evaluator.py` and `gpt_correctness_evaluator.py` scripts inside the `model_card_evaluator/correctness_evaluator_jury` directory to generate jury result.
-3. Run the `model_card_evaluator/correctness_evaluator_jury/jury_result_parser.py` script to view the incorrect sections in the model cards agreed by jury. The result will be saved in the `data/agreed_incorrect_sections.json` file.
+3. Run the `model_card_evaluator/correctness_evaluator_jury/jury_result_parser.py` script to view the incorrect sections in the model cards agreed by jury. 
+   * The result will be saved in the `data/agreed_incorrect_sections.json` file.
+   * A boxplot with the name `distribution_of_no_of_incorrect_sections.pdf` will be generated inside the `data/graphs` directory. 
 
