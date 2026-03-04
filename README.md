@@ -40,7 +40,7 @@ Run the `model_card_evaluator/similarity_calculator/model_cards_similarity_calcu
 #### Compare section level empty sections in original (reorganized) and generated model cards (Table 2)
 Run the `model_card_evaluator/not_available_section_lister.py` script to compare the section level empty sections in the original (reorganized) model cards and the difference in percentage point in the generated model cards. 
 
-#### Run jury
+#### Evaluate correctness using jury
 1. Add your Gemini, Anthropic and OpenAI API keys to the `GEMINI_API_KEY`, `ANTHROPIC_API_KEY` and `OPENAI_API_KEY` variables respectively in the `util/constant.py` file. 
 2. Run the `gemini_correctness_evaluator.py`, `sonnet_correctness_evaluator.py` and `gpt_correctness_evaluator.py` scripts inside the `model_card_evaluator/correctness_evaluator_jury` directory to generate jury result.
 3. Run the `model_card_evaluator/correctness_evaluator_jury/jury_result_parser.py` script to view the incorrect sections in the model cards agreed by jury. 
