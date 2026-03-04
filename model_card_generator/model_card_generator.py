@@ -28,7 +28,15 @@ if __name__ == "__main__":
     gemini_client = GenAIClient(constants.GEMINI_2_5_PRO_PREVIEW, constants.GEMINI_API_KEY)
     model_card_generator = ModelCardGenerator(Path('system_instruction.md'), None, gemini_client)
 
-    model_ids_file_paths = helper.get_repo_files_without_tokenizer_files()
-    model_card_generator.process_batch_request_with_files(model_ids_file_paths)
-    # model_id = 'CohereForAI/c4ai-command-r-plus'
-    # model_card_generator.process_single_request(model_id, model_ids_file_paths[model_id], 6)
+    # model_ids_file_paths = helper.get_repo_files_without_tokenizer_files()
+    # model_card_generator.process_batch_request_with_files(model_ids_file_paths)
+
+    model_id = 'CohereForAI/c4ai-command-r-plus'
+    file_paths = {model_id: [
+        path.REPOS_DIRECTORY / helper.get_repo_dir_name(model_id) / "config.json",
+        path.REPOS_DIRECTORY / helper.get_repo_dir_name(model_id) / "generation_config.json",
+        path.REPOS_DIRECTORY / helper.get_repo_dir_name(model_id) / "model.safetensors.index.json",
+        path.REPOS_DIRECTORY / helper.get_repo_dir_name(model_id) / "special_tokens_map.json",
+        path.REPOS_DIRECTORY / helper.get_repo_dir_name(model_id) / "tokenizer_config.json"
+    ]}
+    model_card_generator.process_single_request(model_id, file_paths[model_id])
