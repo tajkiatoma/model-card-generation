@@ -18,4 +18,6 @@ Replace `model_id` with the name of the repository for which you want to generat
 
 For, `file_paths`, specify the repository files you want to include in the model card generation process. Each file path must be a `Path` object from the [`pathlib`](https://docs.python.org/3/library/pathlib.html#pathlib.Path) library. 
 
+A model card will be generated inside the `data/generated_model_cards/run_2` directory with your provided name.
+
 ## Reproduce Result of the Paper

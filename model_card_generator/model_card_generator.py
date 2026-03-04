@@ -20,8 +20,8 @@ class ModelCardGenerator(LLMPipeline):
 
     def get_save_path(self, id: str, next_iteration_no: int = None) -> Path:
         iteration_no = next_iteration_no if next_iteration_no else helper.get_next_iteration_no(
-            path.GENERATED_MODEL_CARDS_WITHOUT_TOKENIZER_DIRECTORY.parent)
-        return path.GENERATED_MODEL_CARDS_WITHOUT_TOKENIZER_DIRECTORY.parent / f'run_{iteration_no}' / f'{helper.get_repo_dir_name(id)}.md'
+            path.GENERATED_MODEL_CARDS_DIRECTORY.parent)
+        return path.GENERATED_MODEL_CARDS_DIRECTORY.parent / f'run_{iteration_no}' / f'{helper.get_repo_dir_name(id)}.md'
 
 
 if __name__ == "__main__":
