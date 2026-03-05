@@ -33,6 +33,20 @@ Add your Gemini API key to the `GEMINI_API_KEY` variable in the `util/constant.p
     # model_card_generator.process_batch_request_with_files(model_ids_file_paths)
 ```
 
+And, comment the following code to avoid generation for the single repository:
+
+```python
+    model_id = 'CohereForAI/c4ai-command-r-plus'
+    file_paths = {model_id: [
+        path.REPOS_DIRECTORY / helper.get_repo_dir_name(model_id) / "config.json",
+        path.REPOS_DIRECTORY / helper.get_repo_dir_name(model_id) / "generation_config.json",
+        path.REPOS_DIRECTORY / helper.get_repo_dir_name(model_id) / "model.safetensors.index.json",
+        path.REPOS_DIRECTORY / helper.get_repo_dir_name(model_id) / "special_tokens_map.json",
+        path.REPOS_DIRECTORY / helper.get_repo_dir_name(model_id) / "tokenizer_config.json"
+    ]}
+    model_card_generator.process_single_request(model_id, file_paths[model_id])
+```
+
 ### Evaluate Result
 #### Calculate document level similarity between the original (reorganized) model cards and generated model cards (Fig. 9)
 Run the `model_card_evaluator/similarity_calculator/model_cards_similarity_calculator.py` script to calculate similarity between the original (reorganized) model cards and generated model cards. A boxplot will be generated inside the `data/graphs` directory with the name `distribution_of_model_card_similarity_scores.pdf`.
@@ -47,3 +61,41 @@ Run the `model_card_evaluator/not_available_section_lister.py` script to compare
    * The result will be saved in the `data/agreed_incorrect_sections.json` file.
    * A boxplot with the name `distribution_of_no_of_incorrect_sections.pdf` will be generated inside the `data/graphs` directory (Fig. 10). 
 
+#### Compare result of ablation study
+The list of all files in the repositories are listed in `data/repo_files.json`, which we used to generate model cards. For the ablation study, we made separate list for each. 
+
+##### Run without paper
+We used the same `data/repo_files.json` list for this study, only exception is that we did not include the paper. We used the `get_models_with_paper_file_paths_without_paper()` method from the `util/helper.py` script to generate the list. Then, we generate the model cards with this list using the `model_card_generator/model_card_generator.py` script like below:
+
+```python
+    model_ids_file_paths = helper.get_models_with_paper_file_paths_without_paper()
+    model_card_generator.process_batch_request_with_files(model_ids_file_paths)
+```
+
+The model cards will be generated inside the `data/generated_model_cards_without_paper/run_2` directory. `data/generated_model_cards_without_paper/run_1` contains our generated model cards.
+
+##### Run without configuration file
+We used the `data/repo_files_without_configuration_files.json` list for this study. We used the `get_repo_files_without_config_files()` method from the `util/helper.py` script to prepare the list. Then, we generate the model cards with this list using the `model_card_generator/model_card_generator.py` script like below:
+
+```python
+    model_ids_file_paths = helper.get_repo_files_without_config_files()
+    model_card_generator.process_batch_request_with_files(model_ids_file_paths)
+```
+
+The model cards will be generated inside the `data/generated_model_cards_without_config/run_2` directory. `data/generated_model_cards_without_config/run_1` contains our generated model cards.
+
+##### Run without tokenizer file
+We used the `data/repo_files_without_tokenizer_files.json` list for this study. We used the `get_repo_files_without_tokenizer_files()` method from the `util/helper.py` script to prepare the list. Then, we generate the model cards with this list using the `model_card_generator/model_card_generator.py` script like below:
+
+```python
+    model_ids_file_paths = helper.get_repo_files_without_tokenizer_files()
+    model_card_generator.process_batch_request_with_files(model_ids_file_paths)
+```
+
+The model cards will be generated inside the `data/generated_model_cards_without_tokenizer/run_2` directory. `data/generated_model_cards_without_tokenizer/run_1` contains our generated model cards.
+
+##### Section-wise semantic similarity score comparison (Table 3)
+Run the `model_card_evaluator/similarity_calculator/sections_similarity_calculator.py` script to generate the section-wise semantic similarity score comparison.
+
+##### Section-wise comparison of empty sections (Table 4)
+Run the `model_card_evaluator/insufficient_information_section_lister.py`script to compare section-wise differences of empty section generation in percentage point.

@@ -99,12 +99,8 @@ def print_overall_section_similarity_stats_as_latex(section_similarity_scores_fo
 
 
 if __name__ == '__main__':
-    # print_overall_section_similarity_stats_as_latex(None, ['Without Paper', 'Without Config', 'Without Tokenizer'])
-
     selected_models = helper.get_selected_repos()
     model_ids = selected_models['model_id'].tolist()
-
-    # model_ids = ['BAAI/bge-m3', 'CompVis/stable-diffusion-v1-4', 'FacebookAI/roberta-large-mnli', 'MahmoodLab/UNI', 'Qwen/Qwen2-VL-7B-Instruct']
 
     generated_model_card_dir = path.GENERATED_MODEL_CARDS_DIRECTORY
     generated_model_card_without_paper_dir = path.GENERATED_MODEL_CARDS_WITHOUT_PAPER_DIRECTORY
@@ -114,7 +110,7 @@ if __name__ == '__main__':
     section_similarity_scores_for_papers = get_section_similarity_scores(model_ids, generated_model_card_dir, generated_model_card_without_paper_dir)
     section_similarity_scores_for_config = get_section_similarity_scores(model_ids, generated_model_card_dir, generated_model_card_without_config_dir)
     section_similarity_scores_for_tokenizer = get_section_similarity_scores(model_ids, generated_model_card_dir, generated_model_card_without_tokenizer_dir)
-    # print_overall_section_similarity_stats_as_latex([section_similarity_scores_for_papers, section_similarity_scores_for_config, section_similarity_scores_for_tokenizer], ['w/o Paper', 'w/o Config', 'w/o Tokenizer'])
+    print_overall_section_similarity_stats_as_latex([section_similarity_scores_for_papers, section_similarity_scores_for_config, section_similarity_scores_for_tokenizer], ['w/o Paper', 'w/o Config', 'w/o Tokenizer'])
 
     avg_scores_paper = []
     median_scores_paper = []
@@ -125,15 +121,13 @@ if __name__ == '__main__':
         median_score = statistics.median(section_similarity_score)
         median_scores_paper.append(median_score)
 
-        # print(section, avg_score, median_score)
+    print(avg_scores_paper)
+    print(f'Avg: {sum(avg_scores_paper)/len(avg_scores_paper):.2f}')
+    print(f'Med: {statistics.median(avg_scores_paper):.2f}')
 
-    # print(avg_scores_paper)
-    # print(f'Avg: {sum(avg_scores_paper)/len(avg_scores_paper):.2f}')
-    # print(f'Med: {statistics.median(avg_scores_paper):.2f}')
-    #
-    # print(median_scores_paper)
-    # print(f'Avg: {sum(median_scores_paper)/len(median_scores_paper):.2f}')
-    # print(f'Med: {statistics.median(median_scores_paper):.2f}')
+    print(median_scores_paper)
+    print(f'Avg: {sum(median_scores_paper)/len(median_scores_paper):.2f}')
+    print(f'Med: {statistics.median(median_scores_paper):.2f}')
 
     avg_scores_config = []
     median_scores_config = []
